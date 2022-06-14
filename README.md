@@ -1,5 +1,5 @@
-# mind_pal
+# Mind Pal
 
-## sit back, stay on track
+## Sit back, stay on track
 
 A to-do app that allows users to add tasks, edit tasks, delete tasks, update tasks (as completed) and set a reminder for each task.
