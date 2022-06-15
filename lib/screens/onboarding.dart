@@ -66,9 +66,7 @@ class _OnboardingState extends State<Onboarding> {
                   child: MaterialButton(
                     minWidth: 200,
                     height: 60,
-                    onPressed: () async {
-                      //  Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckOutScreen()));
-                    },
+                    onPressed: () async {},
                     child: const Text(
                       "Get Started",
                       style: TextStyle(
@@ -91,7 +89,6 @@ class _OnboardingState extends State<Onboarding> {
                             width: 30,
                             height: 3,
                             color: Color(0xff454893),
-                            // borderRadius: BorderRadius.circular(24),
                           ),
                           dotDecoration: DotDecoration(
                             width: 10,
