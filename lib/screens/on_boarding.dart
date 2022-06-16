@@ -116,7 +116,7 @@ class _OnBoardingState extends State<OnBoarding> {
                         children: [
                           TextButton(
                               onPressed: () {
-                                controller.jumpTo(3);
+                                controller.jumpToPage(3);
                               },
                               child: const Text("Skip",
                                   style: TextStyle(
