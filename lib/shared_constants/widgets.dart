@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ContentTile extends StatelessWidget {
   const ContentTile({
@@ -23,21 +24,18 @@ class ContentTile extends StatelessWidget {
           ),
           Text(
             title,
-            style: const TextStyle(
-                color: Color(0xff454893),
-                fontSize: 30,
-                fontWeight: FontWeight.bold),
+            style: GoogleFonts.poppins(color: const Color(0xff454893),
+                fontSize: 30,fontWeight: FontWeight.bold )
+
           ),
           const SizedBox(
             height: 20,
           ),
           Text(
             subtitle,
-            style: const TextStyle(
-                height: 1.5,
-                color: Color(0xff454893),
-                fontSize: 15,
-                fontWeight: FontWeight.w500),
+            style:
+            GoogleFonts.poppins(color: const Color(0xff454893),
+                fontSize: 15,fontWeight: FontWeight.w500,height: 1.5 )
           ),
         ],
       ),
