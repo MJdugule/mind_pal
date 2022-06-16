@@ -1,17 +1,17 @@
-
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../shared_constants/widgets.dart';
+import 'home/home.dart';
 
-class Onboarding extends StatefulWidget {
-  const Onboarding({Key? key}) : super(key: key);
+class OnBoarding extends StatefulWidget {
+  const OnBoarding({Key? key}) : super(key: key);
 
   @override
-  State<Onboarding> createState() => _OnboardingState();
+  State<OnBoarding> createState() => _OnBoardingState();
 }
 
-class _OnboardingState extends State<Onboarding> {
+class _OnBoardingState extends State<OnBoarding> {
   final controller = PageController();
   bool isLastPage = false;
 
@@ -66,7 +66,16 @@ class _OnboardingState extends State<Onboarding> {
                   child: MaterialButton(
                     minWidth: 200,
                     height: 60,
-                    onPressed: () async {},
+                    onPressed: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) {
+                            return const HomeScreen();
+                          },
+                        ),
+                      );
+                    },
                     child: const Text(
                       "Get Started",
                       style: TextStyle(
@@ -107,7 +116,7 @@ class _OnboardingState extends State<Onboarding> {
                         children: [
                           TextButton(
                               onPressed: () {
-                                controller.jumpTo(3);
+                                controller.jumpToPage(3);
                               },
                               child: const Text("Skip",
                                   style: TextStyle(
@@ -133,4 +142,3 @@ class _OnboardingState extends State<Onboarding> {
               ));
   }
 }
-
