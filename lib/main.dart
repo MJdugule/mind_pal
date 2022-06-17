@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mind_pal/screens/authentication/email_verification_screen.dart';
 import 'package:mind_pal/screens/on_boarding.dart';
 import 'package:mind_pal/screens/splashscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
