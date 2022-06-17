@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../shared_constants/widgets.dart';
@@ -59,7 +60,7 @@ class _OnBoardingState extends State<OnBoarding> {
         bottomSheet: isLastPage
             ? Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 70),
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 75),
                 child: Material(
                   borderRadius: BorderRadius.circular(15),
                   color: const Color(0xff454893),
@@ -76,10 +77,12 @@ class _OnBoardingState extends State<OnBoarding> {
                         ),
                       );
                     },
-                    child: const Text(
+                    child:  Text(
                       "Get Started",
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                      style:GoogleFonts.poppins(color: Colors.white,
+                          fontWeight: FontWeight.bold ),
+                      // style: TextStyle(
+                      //     color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -118,23 +121,26 @@ class _OnBoardingState extends State<OnBoarding> {
                               onPressed: () {
                                 controller.jumpToPage(3);
                               },
-                              child: const Text("Skip",
-                                  style: TextStyle(
-                                      color: Color(0xff454893),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w700))),
+                              child:  Text("Skip",
+                                  style:GoogleFonts.poppins(color: const Color(0xff454893),
+        fontSize: 18,fontWeight: FontWeight.w700 ),
+                                  // TextStyle(
+                                  //     color: Color(0xff454893),
+                                  //     fontSize: 18,
+                                  //     fontWeight: FontWeight.w700)
+                              )),
                           TextButton(
                               onPressed: () {
                                 controller.nextPage(
                                     duration: const Duration(milliseconds: 500),
                                     curve: Curves.easeInOut);
                               },
-                              child: const Text(
+                              child:  Text(
                                 "Next",
-                                style: TextStyle(
-                                    color: Color(0xff454893),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700),
+                                style:
+                                GoogleFonts.poppins(color: const Color(0xff454893),
+                             fontSize: 18,fontWeight: FontWeight.w700 ),
+
                               )),
                         ]),
                   ],
