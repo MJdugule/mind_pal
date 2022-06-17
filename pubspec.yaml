@@ -36,7 +36,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   smooth_page_indicator: ^1.0.0+1
   google_fonts:
-  shared_preferences:
 
 dev_dependencies:
   flutter_test:
