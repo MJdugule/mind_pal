@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mind_pal/screens/home/home.dart';
-import 'on_boarding.dart';
-import 'onboarding.dart';
+import 'package:mind_pal/screens/on_boarding.dart';
+
 class Splashscreen extends StatefulWidget {
   const Splashscreen({Key? key}) : super(key: key);
   @override
@@ -17,9 +17,10 @@ class _SplashscreenState extends State<Splashscreen> {
 
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+          context, MaterialPageRoute(builder: (context) => const OnBoarding()));
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

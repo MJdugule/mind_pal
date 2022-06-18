@@ -17,10 +17,12 @@ class ContentTile extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            image,
-            height: 400,
-            width: 300,
+          Center(
+            child: Image.asset(
+              image,
+              height: 400,
+              width: 300,
+            ),
           ),
           Text(
             title,
