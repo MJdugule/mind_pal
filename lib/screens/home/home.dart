@@ -3,6 +3,7 @@ import 'package:mind_pal/screens/authentication/login_screen.dart';
 import 'package:mind_pal/screens/home/success.dart';
 import 'package:mind_pal/screens/home/saved.dart';
 import 'package:mind_pal/screens/home/menu.dart';
+import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,28 +14,44 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  showdraw(){
+    const Drawer();
+  }
   @override
   Widget build(BuildContext context) {
     ResConfig().init(context);
 
     return Scaffold(
+      drawerEnableOpenDragGesture: true,
+      
+      drawer: Drawer(
+        width: MediaQuery.of(context).size.width,
+        child: const Menu(),
+      ),
+      appBar: AppBar(
+        iconTheme: IconThemeData(size: 25, color: purpleText,),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Text('Hello, Fego'),
             ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                      MaterialPageRoute(builder: (context) => const LoginScreen()));
                 },
-                child: Text('Log Out')),
+                child: const Text('Log Out')),
             Container(
               alignment: Alignment.centerLeft,
               child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Menu()));
+                        MaterialPageRoute(builder: (context) => const Menu()));
                   },
-                  child: Text('Check new page')),
+                  child: const Text('Check new page')),
             ),
             Container(
               color: Colors.grey,
