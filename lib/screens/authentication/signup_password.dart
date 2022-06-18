@@ -15,6 +15,7 @@ class _SignupPasswordScreenState extends State<SignupPasswordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
             splashColor: Color(0xFF959595),

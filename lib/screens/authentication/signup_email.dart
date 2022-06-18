@@ -12,6 +12,7 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Let\'s help you get started'),
           SizedBox(height: 20),
@@ -28,7 +29,7 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
           SizedBox(height: 40),
           ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => SignupPasswordScreen()));
