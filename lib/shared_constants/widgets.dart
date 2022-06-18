@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class ContentTile extends StatelessWidget {
   const ContentTile({
@@ -95,6 +96,49 @@ class MenuBox extends StatelessWidget {
               fontSize: 18,
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class HomeBox extends StatelessWidget {
+  const HomeBox({Key? key, required this.color, required this.text,})
+      : super(key: key);
+  final Color color;
+  final String text; 
+  final int percent = 5;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        print('perform some api magic here');
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        decoration: BoxDecoration(
+            color: color, borderRadius: BorderRadius.circular(20)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Today\'s Progress', style: TextStyle(color: Colors.white),),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.end,
+               children: [
+                 Text('${percent*10}''%', style: TextStyle(color: Colors.white)),
+               ],
+             ),
+            LinearPercentIndicator(
+              progressColor: Colors.green,
+              percent: percent/10,
+            ),
+            Center(
+              child: Text(
+                text,
+               style: TextStyle(color: Colors.white, fontSize: 12),
+              ),
+            ),
+          ],
         ),
       ),
     );

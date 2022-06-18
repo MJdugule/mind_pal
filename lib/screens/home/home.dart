@@ -5,6 +5,7 @@ import 'package:mind_pal/screens/home/saved.dart';
 import 'package:mind_pal/screens/home/menu.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
+import 'package:mind_pal/shared_constants/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -35,67 +36,83 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Text('Hello, Fego'),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const LoginScreen()));
-                },
-                child: const Text('Log Out')),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: ElevatedButton(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal:20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Hello, Fego!'),
+              Text('Today\'s a great day to meet your goals!'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [Text('Hello, Fego!'),
+                CircleAvatar(
+                  backgroundColor: redMenuBox,
+                  child: Icon(Icons.add, color: Colors.white, size: 30,),
+                )
+                ],
+              ),
+              HomeBox(color: purpleText, text: 'You\'re doing great so far. keep going!'),
+              Container(),
+              ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Menu()));
+                        MaterialPageRoute(builder: (context) => const LoginScreen()));
                   },
-                  child: const Text('Check new page')),
-            ),
-            Container(
-              color: Colors.grey,
-              height: ResConfig.screenHeight / 3.2,
-              width: ResConfig.screenWidth / 3,
-              child: const Center(
-                child: Text(
-                  'Home Screen',
-                ),
+                  child: const Text('Log Out')),
+              Container(
+                alignment: Alignment.centerLeft,
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const Menu()));
+                    },
+                    child: const Text('Check new page')),
               ),
-            ),
-            Container(
-              color: Colors.indigo,
-              height: ResConfig.screenHeight / 3.2,
-              margin: EdgeInsets.symmetric(
-                vertical: ResConfig.safeBlockVertical,
-                horizontal: ResConfig.safeBlockHorizontal,
-              ),
-              child: Center(
-                child: Text(
-                  'Home Screen',
-                  style: TextStyle(
-                    fontSize: ResConfig.safeBlockVertical * 5,
+              Container(
+                color: Colors.grey,
+                height: ResConfig.screenHeight / 3.2,
+                width: ResConfig.screenWidth / 3,
+                child: const Center(
+                  child: Text(
+                    'Home Screen',
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: ResConfig.screenHeight / 30,
-            ),
-            Container(
-              color: Colors.blueGrey,
-              height: ResConfig.screenHeight / 3.2,
-              //  width: ResConfig.screenWidth / 0.5,
-              child: Center(
-                child: Text(
-                  'Home Screen',
-                  style: TextStyle(
-                    fontSize: ResConfig.safeBlockVertical,
+              Container(
+                color: Colors.indigo,
+                height: ResConfig.screenHeight / 3.2,
+                margin: EdgeInsets.symmetric(
+                  vertical: ResConfig.safeBlockVertical,
+                  horizontal: ResConfig.safeBlockHorizontal,
+                ),
+                child: Center(
+                  child: Text(
+                    'Home Screen',
+                    style: TextStyle(
+                      fontSize: ResConfig.safeBlockVertical * 5,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: ResConfig.screenHeight / 30,
+              ),
+              Container(
+                color: Colors.blueGrey,
+                height: ResConfig.screenHeight / 3.2,
+                //  width: ResConfig.screenWidth / 0.5,
+                child: Center(
+                  child: Text(
+                    'Home Screen',
+                    style: TextStyle(
+                      fontSize: ResConfig.safeBlockVertical,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
