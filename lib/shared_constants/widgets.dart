@@ -92,7 +92,7 @@ class MenuBox extends StatelessWidget {
             text,
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
-              color: menuText,
+              color: blackText,
               fontSize: 18,
             ),
           ),
@@ -103,10 +103,13 @@ class MenuBox extends StatelessWidget {
 }
 
 class HomeBox extends StatelessWidget {
-  const HomeBox({Key? key, required this.color, required this.text,})
-      : super(key: key);
+  const HomeBox({
+    Key? key,
+    required this.color,
+    required this.text,
+  }) : super(key: key);
   final Color color;
-  final String text; 
+  final String text;
   final int percent = 5;
   @override
   Widget build(BuildContext context) {
@@ -121,25 +124,64 @@ class HomeBox extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Today\'s Progress', style: TextStyle(color: Colors.white),),
-             Row(
-               mainAxisAlignment: MainAxisAlignment.end,
-               children: [
-                 Text('${percent*10}''%', style: TextStyle(color: Colors.white)),
-               ],
-             ),
+            Text(
+              'Today\'s Progress',
+              style: TextStyle(color: Colors.white),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text('${percent * 10}' '%',
+                    style: TextStyle(color: Colors.white)),
+              ],
+            ),
             LinearPercentIndicator(
               progressColor: Colors.green,
-              percent: percent/10,
+              percent: percent / 10,
             ),
             Center(
               child: Text(
                 text,
-               style: TextStyle(color: Colors.white, fontSize: 12),
+                style: TextStyle(color: Colors.white, fontSize: 12),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class WWYLTDBox extends StatelessWidget {
+  const WWYLTDBox({Key? key, required this.text, required this.ontap})
+      : super(key: key);
+  final String text;
+  final dynamic ontap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12.0 , horizontal: 18.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            text,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              color: blackText,
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => ontap));
+              print('Navigate to create new task page');
+            },
+            child: Image.asset('assets/icons/add_icon.png'),
+          ),
+        ],
       ),
     );
   }

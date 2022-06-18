@@ -3,6 +3,7 @@ import 'package:mind_pal/screens/authentication/login_screen.dart';
 import 'package:mind_pal/screens/home/success.dart';
 import 'package:mind_pal/screens/home/saved.dart';
 import 'package:mind_pal/screens/home/menu.dart';
+import 'package:mind_pal/screens/home/what_would_you_like_to_do.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -15,29 +16,31 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  showdraw(){
+  showdraw() {
     const Drawer();
   }
+
   @override
   Widget build(BuildContext context) {
     ResConfig().init(context);
 
     return Scaffold(
       drawerEnableOpenDragGesture: true,
-      
       drawer: Drawer(
         width: MediaQuery.of(context).size.width,
         child: const Menu(),
       ),
       appBar: AppBar(
-        iconTheme: IconThemeData(size: 25, color: purpleText,),
+        iconTheme: IconThemeData(
+          size: 25,
+          color: purpleText,
+        ),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal:20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -45,27 +48,46 @@ class _HomeScreenState extends State<HomeScreen> {
               Text('Today\'s a great day to meet your goals!'),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text('Hello, Fego!'),
-                CircleAvatar(
-                  backgroundColor: redMenuBox,
-                  child: Icon(Icons.add, color: Colors.white, size: 30,),
-                )
+                children: [
+                  Text('Hello, Fego!'),
+                  CircleAvatar(
+                    backgroundColor: redMenuBox,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      WhatWouldYouLikeToDo()));
+                        },
+                        child: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 30,
+                        )),
+                  )
                 ],
               ),
-              HomeBox(color: purpleText, text: 'You\'re doing great so far. keep going!'),
+              HomeBox(
+                  color: purpleText,
+                  text: 'You\'re doing great so far. keep going!'),
               Container(),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const LoginScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()));
                   },
                   child: const Text('Log Out')),
               Container(
                 alignment: Alignment.centerLeft,
                 child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const Menu()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Menu()));
                     },
                     child: const Text('Check new page')),
               ),
