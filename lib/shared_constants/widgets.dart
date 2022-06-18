@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mind_pal/shared_constants/colours.dart';
 
 class ContentTile extends StatelessWidget {
   const ContentTile({
@@ -24,50 +25,77 @@ class ContentTile extends StatelessWidget {
               width: 300,
             ),
           ),
-          Text(
-            title,
-            style: GoogleFonts.poppins(color: const Color(0xff454893),
-                fontSize: 30,fontWeight: FontWeight.bold )
-
-          ),
+          Text(title,
+              style: GoogleFonts.poppins(
+                  color: const Color(0xff454893),
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold)),
           const SizedBox(
             height: 20,
           ),
-          Text(
-            subtitle,
-            style:
-            GoogleFonts.poppins(color: const Color(0xff454893),
-                fontSize: 15,fontWeight: FontWeight.w500,height: 1.5 )
-          ),
+          Text(subtitle,
+              style: GoogleFonts.poppins(
+                  color: const Color(0xff454893),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  height: 1.5)),
         ],
       ),
     );
   }
 }
 
-
 class GetStartedButton extends StatelessWidget {
   final Color color;
   final String text;
   final Color textColor;
-  const GetStartedButton({Key? key,
-    required this.color,
-    required this.text,
-    required this.textColor }) : super(key: key);
+  const GetStartedButton(
+      {Key? key,
+      required this.color,
+      required this.text,
+      required this.textColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
-      height: MediaQuery.of(context).size.height/12,
-      decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(10)
-      ),
+      height: MediaQuery.of(context).size.height / 12,
+      decoration:
+          BoxDecoration(color: color, borderRadius: BorderRadius.circular(10)),
       child: Center(
-        child: Text(text, style: GoogleFonts.poppins(
-            fontSize: 16, color: textColor, fontWeight: FontWeight.bold
-        )),
+        child: Text(text,
+            style: GoogleFonts.poppins(
+                fontSize: 16, color: textColor, fontWeight: FontWeight.bold)),
+      ),
+    );
+  }
+}
+
+class MenuBox extends StatelessWidget {
+  const MenuBox({Key? key, required this.color, required this.text})
+      : super(key: key);
+  final Color color;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        print('perform some api magic here');
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            color: color, borderRadius: BorderRadius.circular(20)),
+        child: Center(
+          child: Text(
+            text,
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600,
+              color: menuText,
+              fontSize: 18,
+            ),
+          ),
+        ),
       ),
     );
   }

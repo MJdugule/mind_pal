@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mind_pal/screens/authentication/login_screen.dart';
+import 'package:mind_pal/screens/home/success.dart';
+import 'package:mind_pal/screens/home/saved.dart';
+import 'package:mind_pal/screens/home/menu.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,6 +27,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       MaterialPageRoute(builder: (context) => LoginScreen()));
                 },
                 child: Text('Log Out')),
+            Container(
+              alignment: Alignment.centerLeft,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Menu()));
+                  },
+                  child: Text('Check new page')),
+            ),
             Container(
               color: Colors.grey,
               height: ResConfig.screenHeight / 3.2,
