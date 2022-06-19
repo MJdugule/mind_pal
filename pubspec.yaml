@@ -38,6 +38,7 @@ dependencies:
   shared_preferences: ^2.0.13
   google_fonts: ^2.1.0
   percent_indicator: ^4.2.2
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:

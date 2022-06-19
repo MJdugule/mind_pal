@@ -3,6 +3,7 @@ import 'package:mind_pal/screens/home/home.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
+import 'package:mind_pal/screens/createTask/createScreen.dart';
 
 class WhatWouldYouLikeToDo extends StatelessWidget {
   const WhatWouldYouLikeToDo({Key? key}) : super(key: key);
@@ -24,7 +25,8 @@ class WhatWouldYouLikeToDo extends StatelessWidget {
             ),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             width: ResConfig.screenWidth / 1.5,
             child: const Text(
               'What would you like to do?',
@@ -39,7 +41,7 @@ class WhatWouldYouLikeToDo extends StatelessWidget {
             height: ResConfig.screenHeight / 15,
           ),
           Divider(),
-          WWYLTDBox(text: 'Create New Task', ontap: HomeScreen()),
+          WWYLTDBox(text: 'Create New Task', ontap: CreateTaskScreen()),
           Divider(),
           WWYLTDBox(text: 'Create New To-Do List', ontap: HomeScreen()),
           Divider(),
