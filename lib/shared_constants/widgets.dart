@@ -161,7 +161,7 @@ class WWYLTDBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0 , horizontal: 18.0),
+      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 18.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -183,6 +183,81 @@ class WWYLTDBox extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class HomeTaskBox extends StatefulWidget {
+  const HomeTaskBox({Key? key}) : super(key: key);
+
+  @override
+  State<HomeTaskBox> createState() => _HomeTaskBoxState();
+}
+
+class _HomeTaskBoxState extends State<HomeTaskBox> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.0),
+          child: Text(
+            'Personal',
+            style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: lightPurpleText,
+                fontSize: 16),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.fromLTRB(20, 12, 30, 12),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: redMenuBox,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'Take Casper for a walk',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: blackText,
+                        fontSize: 16),
+                  ),
+                  Text(
+                    '15:00 - 16:00',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: blackText,
+                        fontSize: 15),
+                  ),
+                ],
+              ),
+              const CircularProgressIndicator(
+                value: 0.4,
+                color: Colors.green,
+                backgroundColor: Colors.transparent,
+              ),
+            ],
+          ),
+        ),
+        const Align(
+          alignment: Alignment.centerRight,
+          child: Padding(
+            padding: EdgeInsets.only(top: 8.0),
+            child: Text(
+              'Edit',
+              style: TextStyle(
+                  fontWeight: FontWeight.w700, color: purpleText, fontSize: 14),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

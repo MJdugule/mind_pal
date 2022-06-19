@@ -1,10 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mind_pal/screens/authentication/login_screen.dart';
+import 'package:mind_pal/screens/home/success.dart';
 import 'package:mind_pal/services/database_service.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
@@ -22,108 +19,106 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Image.asset('assets/icons/back.png'),
+        appBar: AppBar(
+          elevation: 0,
+          leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Image.asset('assets/icons/back.png'),
+          ),
+          backgroundColor: Colors.transparent,
         ),
-        backgroundColor: Colors.transparent,
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 10.0,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Create New Task',
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w700,
-                    color: purpleText,
-                    fontSize: 25,
-                  ),
-                ),
-                SizedBox(
-                  height: ResConfig.screenHeight / 17,
-                ),
-                Text(
-                  'Add Title',
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
-                ),
-                SizedBox(
-                  height: ResConfig.screenHeight / 35,
-                ),
-                Text(
-                  'Give a name to your task...',
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w500,
-                    color: greyText,
-                    fontSize: 13,
-                  ),
-                ),
-                SizedBox(
-                  height: ResConfig.screenHeight / 35,
-                ),
-              ],
-            ),
-          ),
-          TextFormField(
-            controller: taskController,
-            enabled: true,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text('data'),
-              TextButton(
-                onPressed: () {
-                  _createTask();
-                },
-                child: Text(
-                  "Get Started",
-                  style: GoogleFonts.poppins(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(const Color(0xff454893)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  )),
-                ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20.0,
               ),
-            ],
-          )
-        ],
-      ),
-    );
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Create New Task',
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      color: purpleText,
+                      fontSize: 25,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResConfig.screenHeight / 20,
+                  ),
+                  Text(
+                    'Add Title',
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      color: blackText,
+                      fontSize: 18,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResConfig.screenHeight / 60,
+                  ),
+                  TextFormField(
+                    controller: taskController,
+                    enabled: true,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Give a name to your task...',
+                      hintStyle: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: greyText,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: ResConfig.screenHeight / 2.3),
+                  Center(
+                    child: TextButton(
+                      onPressed: () {
+                        _createTask();
+                      },
+                      child: Text(
+                        "Save",
+                        style: GoogleFonts.poppins(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                      style: ButtonStyle(
+                        padding: MaterialStateProperty.all(
+                          const EdgeInsets.symmetric(
+                              vertical: 24.0, horizontal: 100.0),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(purpleText),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 
-   _createTask() async {
+  _createTask() async {
     var data = {
-       "user_id":"4",
+      "user_id": "4",
       'todo': taskController.text,
     };
 
     var res = await TaskApi().postTask(data, 'task');
     var body = jsonDecode(res.body);
-    if(res==200){
-      print('successful');
-    } else{
-      print('no');
+    if (res.statusCode == 200) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => SuccessScreen()));
+    } else {
+      SnackBar(content: Text('Uh oh... Something went wrong.'));
     }
   }
 }
