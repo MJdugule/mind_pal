@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mind_pal/screens/authentication/login_screen.dart';
+import 'package:mind_pal/screens/createTask/createScreen.dart';
 import 'package:mind_pal/screens/home/success.dart';
 import 'package:mind_pal/screens/home/saved.dart';
 import 'package:mind_pal/screens/home/menu.dart';
@@ -46,9 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [Text('Hello, Fego!'),
-                CircleAvatar(
-                  backgroundColor: redMenuBox,
-                  child: Icon(Icons.add, color: Colors.white, size: 30,),
+                InkWell(
+                  onTap: (){Navigator.push(context, MaterialPageRoute(builder: ((context) => CreateTaskScreen())));},
+                  child: CircleAvatar(
+                    backgroundColor: redMenuBox,
+                    child: Icon(Icons.add, color: Colors.white, size: 30,),
+                  ),
                 )
                 ],
               ),
