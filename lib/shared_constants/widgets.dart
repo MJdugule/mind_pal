@@ -88,11 +88,11 @@ class _MenuBoxState extends State<MenuBox> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        print('perform some api magic here');
-      },
-      child: Container(
+    return 
+    // InkWell(      onTap: () {
+        // print('perform some api magic here');
+      // },      child: 
+      Container(
         decoration: BoxDecoration(
             color: widget.color, borderRadius: BorderRadius.circular(20)),
         child: Center(
@@ -105,7 +105,7 @@ class _MenuBoxState extends State<MenuBox> {
             ),
           ),
         ),
-      ),
+      // ),
     );
   }
 }
