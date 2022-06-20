@@ -4,6 +4,8 @@ import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
 
+import 'alltasks.dart';
+
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
 
@@ -57,8 +59,16 @@ class _MenuState extends State<Menu> {
                 childAspectRatio: (170 / 130),
                 mainAxisSpacing: 30,
                 crossAxisSpacing: 20,
-                children: const [
-                  MenuBox(color: redMenuBox, text: 'All Tasks'),
+                children: [
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AllTasksScreen()));
+                    },
+                      child: MenuBox(color: redMenuBox, text: 'All Tasks')),
+
                   MenuBox(color: lilacMenuBox, text: 'Today\'s Tasks'),
                   MenuBox(color: purpleMenuBox, text: 'Shared Tasks'),
                   MenuBox(color: creamMenuBox, text: 'My Lists'),

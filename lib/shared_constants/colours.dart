@@ -2,7 +2,13 @@ import 'package:flutter/cupertino.dart';
 
 const purpleText = Color(0xFF393C7A);
 const greyText = Color(0xFF5D5D5D);
+const lightGreyText = Color(0xFF5E5D5D);
 const menuText = Color(0xFF333333);
+const lightPurpleText = Color(0xFF6466A5);
+const taskDarkText = Color(0xFF0F0E17);
+const activeSwitchColor = Color(0xFFFE979C);
+const textFieldTextColor = Color(0xFF959595);
+
 
 // containers in the menu
 const redMenuBox = Color(0xFFFFA5A9);
