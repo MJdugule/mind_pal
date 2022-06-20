@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
@@ -61,7 +62,7 @@ class GetStartedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
-      height: MediaQuery.of(context).size.height / 12,
+      height: MediaQuery.of(context).size.height / 15,
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(10)),
       child: Center(
@@ -73,11 +74,18 @@ class GetStartedButton extends StatelessWidget {
   }
 }
 
-class MenuBox extends StatelessWidget {
+class MenuBox extends StatefulWidget {
   const MenuBox({Key? key, required this.color, required this.text})
       : super(key: key);
   final Color color;
   final String text;
+
+  @override
+  State<MenuBox> createState() => _MenuBoxState();
+}
+
+class _MenuBoxState extends State<MenuBox> {
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -86,10 +94,10 @@ class MenuBox extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-            color: color, borderRadius: BorderRadius.circular(20)),
+            color: widget.color, borderRadius: BorderRadius.circular(20)),
         child: Center(
           child: Text(
-            text,
+            widget.text,
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
               color: blackText,
@@ -258,6 +266,59 @@ class _HomeTaskBoxState extends State<HomeTaskBox> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class SwitchWidget extends StatefulWidget {
+  const SwitchWidget({Key? key}) : super(key: key);
+
+  @override
+  State<SwitchWidget> createState() => _SwitchWidgetState();
+}
+
+class _SwitchWidgetState extends State<SwitchWidget> {
+  bool isSwitched = false;
+  void toggleSwitch(bool value) {
+
+    if(isSwitched == false)
+    {
+      setState(() {
+        isSwitched = true;
+      });
+    }
+    else
+    {
+      setState(() {
+        isSwitched = false;
+      });
+    }
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Transform.scale(
+      scale: 0.6,
+      child: CupertinoSwitch(
+        value: isSwitched,
+        activeColor: activeSwitchColor,
+        trackColor: purpleText,
+          onChanged: toggleSwitch,
+      ),
+    );
+  }
+}
+
+class TextFieldWidget extends StatelessWidget {
+  const TextFieldWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      decoration: InputDecoration(
+        hintStyle: GoogleFonts.poppins(color: textFieldTextColor, fontSize: 15, fontWeight: FontWeight.w500),
+        hintText: 'Give a name to your task',
+        border: InputBorder.none,
+      ),
     );
   }
 }
