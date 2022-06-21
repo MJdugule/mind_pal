@@ -7,6 +7,7 @@ import 'package:mind_pal/screens/home/menu.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,8 +18,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  showdraw(){
-    const Drawer();
+  getData() async{
+    var response = await  http.get(Uri.https('todo22a.herokuapp.com/api/v1/', 'task'));
   }
   @override
   Widget build(BuildContext context) {

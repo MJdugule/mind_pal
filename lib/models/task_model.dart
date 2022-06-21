@@ -1,5 +1,7 @@
 //this is the response from the api
 
+import 'package:http/http.dart' as http;
+
 class TaskModel {
   int? id;
   int? userId;
@@ -9,7 +11,7 @@ class TaskModel {
 
   TaskModel({this.id, this.userId, this.todo, this.status, this.createdOn});
 
-  TaskModel.fromJson(Map<String, dynamic> json) {
+    TaskModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     userId = json['user_id'];
     todo = json['todo'];
@@ -26,4 +28,8 @@ class TaskModel {
     data['created_on'] = this.createdOn;
     return data;
   }
+}
+
+Future<TaskModel> getTasks()async{
+  final response = await http.get(url)
 }
