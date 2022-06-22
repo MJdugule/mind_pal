@@ -16,3 +16,5 @@ const redMenuBox = Color(0xFFFFA5A9);
 const lilacMenuBox = Color(0xFFCDCEFF);
 const purpleMenuBox = Color(0xFFE3B5FF);
 const creamMenuBox = Color(0xFFFFE79F);
+const buttonTextColor = Color(0xFFFBEBDF);
+const dividerColor = Color(0xFF000000);
