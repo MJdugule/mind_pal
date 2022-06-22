@@ -13,6 +13,7 @@ import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -45,7 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         actions: [
           ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
+                final initScreen = await SharedPreferences.getInstance();
+                initScreen.setInt('initScreen', 1);
+
                 Navigator.push(
                     context,
                     MaterialPageRoute(
