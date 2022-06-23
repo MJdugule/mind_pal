@@ -40,7 +40,8 @@ class PhoneVerificationScreen extends StatelessWidget {
                     children: [
                       Text('Resend code in', style: GoogleFonts.poppins(color: Color(0xFF959595), fontSize: 14, fontWeight: FontWeight.w600),),
                       SizedBox(width: 5,),
-                      Text('00:30', style: GoogleFonts.poppins(color: Color(0xFF333333), fontSize: 14, fontWeight: FontWeight.w600),)
+                      Text('00:30', style: GoogleFonts.poppins(color: Color(0xFF333333), fontSize: 14, 
+                      fontWeight: FontWeight.w600),)
 
                     ],
                   )
