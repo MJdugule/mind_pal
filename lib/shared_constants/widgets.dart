@@ -143,10 +143,11 @@ class HomeBox extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
               ],
             ),
-            LinearPercentIndicator(
-              progressColor: Colors.green,
-              percent: percent / 10,
-            ),
+            // LinearPercentIndicator(
+            //   progressColor: Colors.green,
+            //   percent: percent / 10,
+            // ),
+            const Text('LinearPercentIndicator was here'),
             Center(
               child: Text(
                 text,

@@ -1,14 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:mind_pal/models/task_model.dart';
 import 'package:mind_pal/screens/authentication/login_screen.dart';
-import 'package:mind_pal/screens/createTask/createScreen.dart';
-import 'package:mind_pal/screens/home/success.dart';
-import 'package:mind_pal/screens/home/saved.dart';
 import 'package:mind_pal/screens/home/menu.dart';
 import 'package:mind_pal/screens/home/what_would_you_like_to_do.dart';
-import 'package:mind_pal/services/database_service.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -34,8 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       drawerEnableOpenDragGesture: true,
       drawer: Drawer(
-        width: MediaQuery.of(context).size.width,
         child: const Menu(),
+
+        //width: MediaQuery.of(context).size.width,
       ),
       appBar: AppBar(
         iconTheme: const IconThemeData(
