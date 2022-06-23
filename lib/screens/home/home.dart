@@ -64,42 +64,66 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Hello, Fego!'),
-              Text('Today\'s a great day to meet your goals!'),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Hello, Fego!'),
-                  CircleAvatar(
-                    backgroundColor: redMenuBox,
-                    child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      WhatWouldYouLikeToDo()));
-                        },
-                        child: const Icon(
-                          Icons.add,
-                          color: Colors.white,
-                          size: 30,
-                        )),
-                  )
-                ],
+              const Text(
+                'Hello, Fego!',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w700,
+                  color: blackText,
+                ),
+              ),
+              const Text(
+                'Today\'s a great day to meet your goals!',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: greyText,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'June 30, 2022',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: blackText,
+                      ),
+                    ),
+                    CircleAvatar(
+                      backgroundColor: redMenuBox,
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        WhatWouldYouLikeToDo()));
+                          },
+                          child: const Icon(
+                            Icons.add,
+                            color: Colors.white,
+                            size: 30,
+                          )),
+                    )
+                  ],
+                ),
               ),
               const HomeBox(
                   color: purpleText,
                   text: 'You\'re doing great so far. Keep going!'),
               SizedBox(
-                height: ResConfig.screenHeight / 15,
+                height: ResConfig.screenHeight / 20,
               ),
               const Text(
                 'Ongoing Tasks',
                 style: TextStyle(
                     fontWeight: FontWeight.w700,
                     color: purpleText,
-                    fontSize: 20),
+                    fontSize: 20,),
               ),
               Container(
                 height: ResConfig.screenHeight / 2,
