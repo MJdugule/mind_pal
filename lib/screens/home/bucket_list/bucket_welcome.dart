@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mind_pal/screens/home/bucket_list/list_name.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -24,7 +25,9 @@ class _BucketListState extends State<BucketList> {
             Icons.arrow_back,
             color: purpleText,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: ListView(
@@ -54,14 +57,19 @@ class _BucketListState extends State<BucketList> {
                   height: ResConfig.screenHeight / 50,
                 ),
                 Text(
-                  "A safe place for all your dreams and\n aspirations.",
-                  style: GoogleFonts.poppins(height: 2),
+                  "A safe place for all your dreams and aspirations.",
+                  style: GoogleFonts.poppins(),
                 ),
                 SizedBox(
                   height: ResConfig.screenHeight / 50,
                 ),
-                Image.asset(
-                  "assets/images/bucket_welcome.png",
+                Center(
+                  child: Container(
+                    height: ResConfig.screenHeight / 3,
+                    child: Image.asset(
+                      "assets/images/bucket_welcome.png",
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -69,10 +77,7 @@ class _BucketListState extends State<BucketList> {
           SizedBox(
             height: ResConfig.screenHeight / 35,
           ),
-          const Divider(
-            color: lightGreyText,
-            height: 2,
-          ),
+          const Divider(),
           const BucketContent(
               title: "Customize your layouts",
               image: "assets/images/checked.png"),
@@ -86,7 +91,12 @@ class _BucketListState extends State<BucketList> {
             height: ResConfig.screenHeight / 25,
           ),
           GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ListName()),
+                );
+              },
               child: const Center(
                   child: GetStartedButton(
                       color: Color(0xFF393c7A),

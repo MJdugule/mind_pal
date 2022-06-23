@@ -29,8 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       drawerEnableOpenDragGesture: true,
       drawer: Drawer(
         child: const Menu(),
-
-        //width: MediaQuery.of(context).size.width,
+        width: ResConfig.screenWidth,
       ),
       appBar: AppBar(
         iconTheme: const IconThemeData(

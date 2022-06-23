@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/bucket_list/bucket_congrats.dart';
 import 'package:mind_pal/screens/home/bucket_list/bucket_digital.dart';
+import 'package:mind_pal/screens/home/bucket_list/bucket_welcome.dart';
+import 'package:mind_pal/screens/home/home.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -40,7 +42,7 @@ class _MenuState extends State<Menu> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               'How are you planning today?',
@@ -77,7 +79,7 @@ class _MenuState extends State<Menu> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => BucketDigital()));
+                                builder: (context) => BucketList()));
                       },
                       child: MenuBox(color: creamMenuBox, text: 'My Lists')),
                 ],

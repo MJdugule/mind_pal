@@ -1,20 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mind_pal/screens/BucketList/bucket_list.dart';
-
-import 'package:mind_pal/screens/BucketList/layout.dart';
-import 'package:mind_pal/screens/BucketList/list_name.dart';
-import 'package:mind_pal/screens/BucketList/my_list.dart';
-import 'package:mind_pal/screens/BucketList/section.dart';
-import 'package:mind_pal/screens/authentication/email_verification_screen.dart';
-import 'package:mind_pal/screens/home/alltasks.dart';
-import 'package:mind_pal/screens/home/create_new_tasks.dart';
 import 'package:mind_pal/screens/home/home.dart';
-import 'package:mind_pal/screens/on_boarding.dart';
 import 'package:mind_pal/screens/splashscreen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-int? initScreen;
+// int? initScreen;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await preferences.setInt('initScreen', 1);
@@ -28,15 +17,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home:Layout(),
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       title: 'Mind Pal',
-      home: Splashscreen(),
-      // initialRoute:
-          // initScreen == 0 || initScreen == null ? 'homeScreen' : 'splashScreen',
+      home: const Splashscreen(),
       routes: {
         'homeScreen': (_) => const HomeScreen(),
         'splashScreen': (_) => const Splashscreen(),

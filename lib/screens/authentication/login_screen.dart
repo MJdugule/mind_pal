@@ -135,33 +135,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('New around here? '),
-                InkWell(
-                    onTap: () async {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignupEmailScreen()));
-                    },
-                    child: Image.asset('assets/images/google.png'),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      print('facebook');
-                    },
-                    child: Image.asset('assets/images/facebook.png'),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      print('apple');
-                    },
-                    child: Image.asset('assets/images/apple.png'),
-                  ),
-                ],
-              ),
               SizedBox(
                 height: ResConfig.screenHeight / 30,
               ),
@@ -202,7 +175,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ],
           ),
         ),
-      ),
-    );
+      );
+    
   }
 }
