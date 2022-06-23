@@ -9,35 +9,38 @@ import 'package:mind_pal/screens/BucketList/section.dart';
 import 'package:mind_pal/screens/authentication/email_verification_screen.dart';
 import 'package:mind_pal/screens/home/alltasks.dart';
 import 'package:mind_pal/screens/home/create_new_tasks.dart';
+import 'package:mind_pal/screens/home/home.dart';
 import 'package:mind_pal/screens/on_boarding.dart';
 import 'package:mind_pal/screens/splashscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 int? initScreen;
 Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // SharedPreferences preferences = await SharedPreferences.getInstance();
-  // initScreen = preferences.getInt('initScreen');
+  WidgetsFlutterBinding.ensureInitialized();
   // await preferences.setInt('initScreen', 1);
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(home:Layout(),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme(),
+      theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       title: 'Mind Pal',
-      // initialRoute: initScreen == 0 || initScreen == null
-      //     ? 'onBoardingScreen'
-      //     : 'splashScreen',
-      // routes: {
-      //   'onBoardingScreen': (_) => const OnBoarding(),
-      //   'splashScreen': (_) => const Splashscreen(),
-      // },
+      home: Splashscreen(),
+      // initialRoute:
+          // initScreen == 0 || initScreen == null ? 'homeScreen' : 'splashScreen',
+      routes: {
+        'homeScreen': (_) => const HomeScreen(),
+        'splashScreen': (_) => const Splashscreen(),
+      },
     );
   }
 }

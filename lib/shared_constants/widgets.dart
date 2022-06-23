@@ -88,26 +88,25 @@ class MenuBox extends StatefulWidget {
 }
 
 class _MenuBoxState extends State<MenuBox> {
-
   @override
   Widget build(BuildContext context) {
-    return 
-    // InkWell(      onTap: () {
+    return
+        // InkWell(      onTap: () {
         // print('perform some api magic here');
-      // },      child: 
-      Container(
-        decoration: BoxDecoration(
-            color: widget.color, borderRadius: BorderRadius.circular(20)),
-        child: Center(
-          child: Text(
-            widget.text,
-            style: GoogleFonts.poppins(
-              fontWeight: FontWeight.w600,
-              color: blackText,
-              fontSize: 18,
-            ),
+        // },      child:
+        Container(
+      decoration: BoxDecoration(
+          color: widget.color, borderRadius: BorderRadius.circular(20)),
+      child: Center(
+        child: Text(
+          widget.text,
+          style: GoogleFonts.poppins(
+            fontWeight: FontWeight.w600,
+            color: blackText,
+            fontSize: 18,
           ),
         ),
+      ),
       // ),
     );
   }
@@ -146,10 +145,11 @@ class HomeBox extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
               ],
             ),
-            LinearPercentIndicator(
-              progressColor: Colors.green,
-              percent: percent / 10,
-            ),
+            // LinearPercentIndicator(
+            //   progressColor: Colors.green,
+            //   percent: percent / 10,
+            // ),
+            const Text('LinearPercentIndicator was here'),
             Center(
               child: Text(
                 text,
@@ -283,20 +283,17 @@ class SwitchWidget extends StatefulWidget {
 class _SwitchWidgetState extends State<SwitchWidget> {
   bool isSwitched = false;
   void toggleSwitch(bool value) {
-
-    if(isSwitched == false)
-    {
+    if (isSwitched == false) {
       setState(() {
         isSwitched = true;
       });
-    }
-    else
-    {
+    } else {
       setState(() {
         isSwitched = false;
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Transform.scale(
@@ -305,7 +302,7 @@ class _SwitchWidgetState extends State<SwitchWidget> {
         value: isSwitched,
         activeColor: activeSwitchColor,
         trackColor: purpleText,
-          onChanged: toggleSwitch,
+        onChanged: toggleSwitch,
       ),
     );
   }
@@ -318,14 +315,227 @@ class TextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        hintStyle: GoogleFonts.poppins(color: textFieldTextColor, fontSize: 15, fontWeight: FontWeight.w500),
+        hintStyle: GoogleFonts.poppins(
+            color: textFieldTextColor,
+            fontSize: 15,
+            fontWeight: FontWeight.w500),
         hintText: 'Give a name to your task',
         border: InputBorder.none,
       ),
     );
   }
 }
- class BucketContent extends StatelessWidget {
+
+class AuthTextField extends StatelessWidget {
+  const AuthTextField({
+    Key? key,
+    required this.header,
+    required this.hint,
+    required this.controller,
+  }) : super(key: key);
+
+  final String header;
+  final String hint;
+  final TextEditingController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: ResConfig.screenHeight / 100),
+          child: Text(
+            header,
+            style: const TextStyle(
+              fontSize: 13.0,
+              fontWeight: FontWeight.w600,
+              color: blackText,
+            ),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.only(left: 16.0),
+          decoration: BoxDecoration(
+            border: Border.all(color: blackText),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: TextFormField(
+            controller: controller,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: hint,
+              hintStyle: const TextStyle(
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.w500,
+                  color: textFieldTextColor),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class AuthButton extends StatelessWidget {
+  const AuthButton({Key? key, required this.route, required this.text})
+      : super(key: key);
+
+  final Widget route;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => route));
+      },
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all(
+            const EdgeInsets.symmetric(vertical: 16.0, horizontal: 100.0)),
+        backgroundColor: MaterialStateProperty.all(purpleText),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(
+            fontSize: 17.0,
+            fontWeight: FontWeight.w600,
+            color: buttonTextColor),
+      ),
+    );
+  }
+}
+
+class FeatureButtonBlue extends StatelessWidget {
+  const FeatureButtonBlue({Key? key, required this.route, required this.text})
+      : super(key: key);
+
+  final Widget route;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => route));
+      },
+      child: Container(
+        height: 50,
+        width: 250,
+        decoration: BoxDecoration(
+          color: purpleText,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: purpleText.withOpacity(0.5),
+              offset: const Offset(3, 3),
+              blurRadius: 3,
+            )
+          ],
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                color: buttonTextColor,
+                fontSize: 18),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class FeatureButtonWhite extends StatelessWidget {
+  const FeatureButtonWhite({Key? key, required this.route, required this.text})
+      : super(key: key);
+
+  final Widget route;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => route));
+      },
+      child: Container(
+        height: 40,
+        width: 250,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: purpleText),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                color: textFieldTextColor,
+                fontSize: 16),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DigitalTaskBox extends StatefulWidget {
+  const DigitalTaskBox({Key? key, required this.text}) : super(key: key);
+  final String text;
+
+  @override
+  State<DigitalTaskBox> createState() => _DigitalTaskBoxState();
+}
+
+class _DigitalTaskBoxState extends State<DigitalTaskBox> {
+  bool? isChecked = false;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Divider(),
+        Container(
+          margin: const EdgeInsets.symmetric(
+            vertical: 16,
+            horizontal: 24,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                widget.text,
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
+                    color: blackText,
+                    fontSize: 16),
+              ),
+              Expanded(child: SizedBox()),
+              InkWell(
+                  onTap: () {},
+                  child: Image.asset('assets/images/icon_pencil.png')),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Checkbox(
+                  // overlayColor: MaterialStateProperty.all(activeSwitchColor),
+                  // checkColor: activeSwitchColor,
+                  value: isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      isChecked = value;
+                    });
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class BucketContent extends StatelessWidget {
   final String title;
   final String image;
    const BucketContent({Key? key, required this.title, required this.image}) : super(key: key);
@@ -349,8 +559,6 @@ class TextFieldWidget extends StatelessWidget {
            color: lightGreyText,
            height: 2,
          ),
-
-
        ],
      );
    }
