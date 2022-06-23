@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+//import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class ContentTile extends StatelessWidget {
   const ContentTile({
@@ -85,26 +85,25 @@ class MenuBox extends StatefulWidget {
 }
 
 class _MenuBoxState extends State<MenuBox> {
-
   @override
   Widget build(BuildContext context) {
-    return 
-    // InkWell(      onTap: () {
+    return
+        // InkWell(      onTap: () {
         // print('perform some api magic here');
-      // },      child: 
-      Container(
-        decoration: BoxDecoration(
-            color: widget.color, borderRadius: BorderRadius.circular(20)),
-        child: Center(
-          child: Text(
-            widget.text,
-            style: GoogleFonts.poppins(
-              fontWeight: FontWeight.w600,
-              color: blackText,
-              fontSize: 18,
-            ),
+        // },      child:
+        Container(
+      decoration: BoxDecoration(
+          color: widget.color, borderRadius: BorderRadius.circular(20)),
+      child: Center(
+        child: Text(
+          widget.text,
+          style: GoogleFonts.poppins(
+            fontWeight: FontWeight.w600,
+            color: blackText,
+            fontSize: 18,
           ),
         ),
+      ),
       // ),
     );
   }
@@ -143,10 +142,11 @@ class HomeBox extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
               ],
             ),
-            LinearPercentIndicator(
-              progressColor: Colors.green,
-              percent: percent / 10,
-            ),
+            // LinearPercentIndicator(
+            //   progressColor: Colors.green,
+            //   percent: percent / 10,
+            // ),
+            const Text('LinearPercentIndicator was here'),
             Center(
               child: Text(
                 text,
@@ -280,20 +280,17 @@ class SwitchWidget extends StatefulWidget {
 class _SwitchWidgetState extends State<SwitchWidget> {
   bool isSwitched = false;
   void toggleSwitch(bool value) {
-
-    if(isSwitched == false)
-    {
+    if (isSwitched == false) {
       setState(() {
         isSwitched = true;
       });
-    }
-    else
-    {
+    } else {
       setState(() {
         isSwitched = false;
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Transform.scale(
@@ -302,7 +299,7 @@ class _SwitchWidgetState extends State<SwitchWidget> {
         value: isSwitched,
         activeColor: activeSwitchColor,
         trackColor: purpleText,
-          onChanged: toggleSwitch,
+        onChanged: toggleSwitch,
       ),
     );
   }
@@ -315,7 +312,10 @@ class TextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        hintStyle: GoogleFonts.poppins(color: textFieldTextColor, fontSize: 15, fontWeight: FontWeight.w500),
+        hintStyle: GoogleFonts.poppins(
+            color: textFieldTextColor,
+            fontSize: 15,
+            fontWeight: FontWeight.w500),
         hintText: 'Give a name to your task',
         border: InputBorder.none,
       ),

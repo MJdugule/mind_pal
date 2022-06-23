@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mind_pal/screens/authentication/signup_password.dart';
 
+final TextEditingController username = TextEditingController();
+final TextEditingController email = TextEditingController();
+
 class SignupEmailScreen extends StatefulWidget {
   @override
   State<SignupEmailScreen> createState() => _SignupEmailScreenState();
@@ -18,12 +21,14 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
           SizedBox(height: 20),
           Text('Email address or phone number'),
           TextFormField(
+            controller: email,
             decoration: InputDecoration(
                 hintText: 'Enter your email address or phone number'),
           ),
           SizedBox(height: 20),
           Text('Username'),
           TextFormField(
+            controller: username,
             decoration: InputDecoration(hintText: 'Enter a username'),
           ),
           SizedBox(height: 40),
@@ -32,7 +37,9 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => SignupPasswordScreen()));
+                      builder: (context) => SignupPasswordScreen(),
+                      //maintainState: true,
+                    ));
               },
               child: Text('Next')),
         ],

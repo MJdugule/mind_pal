@@ -115,10 +115,10 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
     var res = await TaskApi().postTask(data, 'task');
     var body = jsonDecode(res.body);
     if (res.statusCode == 200) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => SuccessScreen()));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const SuccessScreen()));
     } else {
-      SnackBar(content: Text('Uh oh... Something went wrong.'));
+      const SnackBar(content: Text('Uh oh... Something went wrong.'));
     }
   }
 }
