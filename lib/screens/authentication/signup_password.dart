@@ -73,15 +73,14 @@ class _SignupPasswordScreenState extends State<SignupPasswordScreen> {
                           var body = jsonDecode(res.body);
 
                           if (res.statusCode == 200) {
-                            print('This is when the code is 200')
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const HomeScreen()));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
-                               SnackBar(
-                                content:const Text(
+                              SnackBar(
+                                content: const Text(
                                     'Oh something went wrong\nPls check your connection and try again'),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
@@ -93,16 +92,26 @@ class _SignupPasswordScreenState extends State<SignupPasswordScreen> {
                           }
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text(
+                            SnackBar(
+                              content: const Text(
                                   'The length of password must be more than 6'),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              elevation: 4,
+                              backgroundColor: Colors.red,
                             ),
                           );
                         }
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Password do not match'),
+                          SnackBar(
+                            content: const Text('Password do not match'),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            elevation: 4,
+                            backgroundColor: Colors.red,
                           ),
                         );
                       }
