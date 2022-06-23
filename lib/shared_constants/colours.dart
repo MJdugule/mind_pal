@@ -10,6 +10,7 @@ const taskDarkText = Color(0xFF0F0E17);
 const activeSwitchColor = Color(0xFFFE979C);
 const textFieldTextColor = Color(0xFF959595);
 const blackText = Color(0xFF333333);
+const goalHeadertext = Color(0xFF7F4B4E);
 
 // containers in the menu
 const redMenuBox = Color(0xFFFFA5A9);

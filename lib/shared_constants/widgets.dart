@@ -402,8 +402,8 @@ class AuthButton extends StatelessWidget {
   }
 }
 
-class FeatureButton extends StatelessWidget {
-  const FeatureButton({Key? key, required this.route, required this.text})
+class FeatureButtonBlue extends StatelessWidget {
+  const FeatureButtonBlue({Key? key, required this.route, required this.text})
       : super(key: key);
 
   final Widget route;
@@ -442,75 +442,89 @@ class FeatureButton extends StatelessWidget {
   }
 }
 
+class FeatureButtonWhite extends StatelessWidget {
+  const FeatureButtonWhite({Key? key, required this.route, required this.text})
+      : super(key: key);
+
+  final Widget route;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => route));
+      },
+      child: Container(
+        height: 40,
+        width: 250,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: purpleText),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                color: textFieldTextColor,
+                fontSize: 16),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class DigitalTaskBox extends StatefulWidget {
-  const DigitalTaskBox({Key? key}) : super(key: key);
+  const DigitalTaskBox({Key? key, required this.text}) : super(key: key);
+  final String text;
 
   @override
   State<DigitalTaskBox> createState() => _DigitalTaskBoxState();
 }
 
 class _DigitalTaskBoxState extends State<DigitalTaskBox> {
+  bool? isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 8.0),
-          child: Text(
-            'Personal',
-            style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: lightPurpleText,
-                fontSize: 16),
-          ),
-        ),
+        Divider(),
         Container(
-          padding: EdgeInsets.fromLTRB(20, 12, 30, 12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: redMenuBox,
+          margin: const EdgeInsets.symmetric(
+            vertical: 16,
+            horizontal: 24,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'Take Casper for a walk',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: blackText,
-                        fontSize: 16),
-                  ),
-                  Text(
-                    '15:00 - 16:00',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: blackText,
-                        fontSize: 15),
-                  ),
-                ],
+              Text(
+                widget.text,
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
+                    color: blackText,
+                    fontSize: 16),
               ),
-              const CircularProgressIndicator(
-                value: 0.4,
-                color: Colors.green,
-                backgroundColor: Colors.transparent,
+              Expanded(child: SizedBox()),
+              InkWell(
+                  onTap: () {},
+                  child: Image.asset('assets/images/icon_pencil.png')),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Checkbox(
+                  // overlayColor: MaterialStateProperty.all(activeSwitchColor),
+                  // checkColor: activeSwitchColor,
+                  value: isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      isChecked = value;
+                    });
+                  },
+                ),
               ),
             ],
-          ),
-        ),
-        const Align(
-          alignment: Alignment.centerRight,
-          child: Padding(
-            padding: EdgeInsets.only(top: 8.0),
-            child: Text(
-              'Edit',
-              style: TextStyle(
-                  fontWeight: FontWeight.w700, color: purpleText, fontSize: 14),
-            ),
           ),
         ),
       ],

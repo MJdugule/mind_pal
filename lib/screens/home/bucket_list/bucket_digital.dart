@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/models/task_model.dart';
 import 'package:mind_pal/screens/authentication/login_screen.dart';
 import 'package:mind_pal/screens/createTask/createScreen.dart';
+import 'package:mind_pal/screens/home/bucket_list/bucket_congrats.dart';
 import 'package:mind_pal/screens/home/success.dart';
 import 'package:mind_pal/screens/home/saved.dart';
 import 'package:mind_pal/screens/home/menu.dart';
@@ -23,6 +25,17 @@ class BucketDigital extends StatefulWidget {
 }
 
 class _BucketDigitalState extends State<BucketDigital> {
+  List bucketLists = [
+    const DigitalTaskBox(text: 'Visit Rome'),
+    const DigitalTaskBox(text: 'Learn to bake'),
+    const DigitalTaskBox(text: 'Move to study in paris'),
+    const DigitalTaskBox(text: 'Attend a folk concert'),
+    const DigitalTaskBox(text: 'Visit Rome'),
+    const DigitalTaskBox(text: 'Learn to bake'),
+    const DigitalTaskBox(text: 'Move to study in paris'),
+    const DigitalTaskBox(text: 'Attend a folk concert'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     ResConfig().init(context);
@@ -44,32 +57,33 @@ class _BucketDigitalState extends State<BucketDigital> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Digital',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 25,
-                  fontWeight: FontWeight.w700,
-                  color: blackText,
+                  fontWeight: FontWeight.w600,
+                  color: purpleText,
                 ),
               ),
-              const Text(
+              Text(
                 'Here\'s a glimpse of what your list currently looks like. You can add, update, or delete goals anytime.',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: greyText,
+                  color: lightGreyText,
                 ),
               ),
               Container(
                 color: digitalBox,
                 child: Column(
                   children: [
-                    const Text(
+                    Text(
                       'Fego\'s goals',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: purpleText,
-                        fontSize: 20,
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
+                        color: goalHeadertext,
+                        fontSize: 25,
+                        fontStyle: FontStyle.italic,
                       ),
                     ),
                     Container(
@@ -77,10 +91,30 @@ class _BucketDigitalState extends State<BucketDigital> {
                       child: ListView.builder(
                         shrinkWrap: true,
                         itemBuilder: ((context, index) {
-                          return DigitalTaskBox();
+                          return bucketLists[index];
                         }),
-                        itemCount: 4,
+                        itemCount: bucketLists.length,
                       ),
+                    ),
+                    SizedBox(
+                      height: ResConfig.blockSizeVertical * 3,
+                    ),
+                  ],
+                ),
+              ),
+              Center(
+                child: Column(
+                  children: [
+                    const FeatureButtonWhite(
+                      route: BucketCongrats(),
+                      text: 'Edit',
+                    ),
+                    SizedBox(
+                      height: ResConfig.blockSizeVertical * 2,
+                    ),
+                    const FeatureButtonBlue(
+                      route: BucketCongrats(),
+                      text: 'Confirm',
                     ),
                   ],
                 ),

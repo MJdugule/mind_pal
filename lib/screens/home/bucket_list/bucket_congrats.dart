@@ -41,7 +41,7 @@ class BucketCongrats extends StatelessWidget {
               ),
             ),
             SizedBox(height: ResConfig.screenHeight / 10),
-            const FeatureButton(route: HomeScreen(), text: 'Back to home'),
+            const FeatureButtonBlue(route: HomeScreen(), text: 'Back to home'),
           ],
         ),
       ),
