@@ -1,18 +1,22 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mind_pal/screens/authentication/email_verification_screen.dart';
+import 'package:mind_pal/screens/authentication/getstarted_screen.dart';
 import 'package:mind_pal/screens/authentication/phone_verification_screen.dart';
 import 'package:mind_pal/screens/authentication/signup_email.dart';
 import 'package:mind_pal/screens/authentication/signup_email.dart';
 import 'package:mind_pal/screens/home/home.dart';
 import 'package:mind_pal/screens/on_boarding.dart';
-
 import '../../services/database_service.dart';
 import 'signup_email.dart';
+import 'package:mind_pal/shared_constants/colours.dart';
+import 'package:mind_pal/shared_constants/res_config.dart';
+import 'package:mind_pal/shared_constants/widgets.dart';
 
 class SignupPasswordScreen extends StatefulWidget {
+  const SignupPasswordScreen({Key? key}) : super(key: key);
+
   @override
   State<SignupPasswordScreen> createState() => _SignupPasswordScreenState();
 }

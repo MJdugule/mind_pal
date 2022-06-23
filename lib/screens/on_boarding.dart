@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/authentication/login_screen.dart';
+import 'package:mind_pal/shared_constants/res_config.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../shared_constants/widgets.dart';
@@ -25,9 +27,11 @@ class _OnBoardingState extends State<OnBoarding> {
 
   @override
   Widget build(BuildContext context) {
+    ResConfig().init(context);
+
     return Scaffold(
         body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 50),
+          padding: EdgeInsets.symmetric(vertical: ResConfig.screenHeight / 50),
           child: PageView(
             controller: controller,
             onPageChanged: (index) => setState(() {
@@ -60,7 +64,7 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
         bottomSheet: isLastPage
             ? SizedBox(
-                height: 100,
+                height: 80,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +73,11 @@ class _OnBoardingState extends State<OnBoarding> {
                       width: 200,
                       height: 60,
                       child: TextButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          final initScreen =
+                              await SharedPreferences.getInstance();
+                          initScreen.setInt('initScreen', 0);
+
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

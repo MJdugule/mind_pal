@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mind_pal/screens/home/bucket_list/bucket_congrats.dart';
+import 'package:mind_pal/screens/home/bucket_list/bucket_digital.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -61,17 +63,23 @@ class _MenuState extends State<Menu> {
                 crossAxisSpacing: 20,
                 children: [
                   InkWell(
-                    onTap: (){
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AllTasksScreen()));
-                    },
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AllTasksScreen()));
+                      },
                       child: MenuBox(color: redMenuBox, text: 'All Tasks')),
-
                   MenuBox(color: lilacMenuBox, text: 'Today\'s Tasks'),
                   MenuBox(color: purpleMenuBox, text: 'Shared Tasks'),
-                  MenuBox(color: creamMenuBox, text: 'My Lists'),
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BucketDigital()));
+                      },
+                      child: MenuBox(color: creamMenuBox, text: 'My Lists')),
                 ],
               ),
             ),

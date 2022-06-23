@@ -42,7 +42,7 @@ class TaskComponent extends StatelessWidget {
 
         splashColor: Colors.purple.shade100,
       onTap: (){
-        Navigator.pushReplacement(
+        Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => EditTasksScreen(taskCategory: taskCategory, taskTitle: taskTitle,)));

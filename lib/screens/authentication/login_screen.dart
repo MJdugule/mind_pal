@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mind_pal/screens/authentication/signup_email.dart';
 import 'package:mind_pal/screens/home/home.dart';
+import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
+import 'package:mind_pal/shared_constants/widgets.dart';
 
 import '../../services/database_service.dart';
 
@@ -144,10 +146,61 @@ class _LoginScreenState extends State<LoginScreen> {
                           MaterialPageRoute(
                               builder: (context) => SignupEmailScreen()));
                     },
-                    child: const Text('Create an account')),
-              ],
-            ),
-          ],
+                    child: Image.asset('assets/images/google.png'),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      print('facebook');
+                    },
+                    child: Image.asset('assets/images/facebook.png'),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      print('apple');
+                    },
+                    child: Image.asset('assets/images/apple.png'),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: ResConfig.screenHeight / 30,
+              ),
+              const Center(
+                  child: AuthButton(
+                route: HomeScreen(),
+                text: 'Login',
+              )),
+              SizedBox(
+                height: ResConfig.screenHeight / 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'New around here? ',
+                    style: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w700,
+                        color: blackText),
+                  ),
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignupEmailScreen()));
+                      },
+                      child: const Text(
+                        'Create an account',
+                        style: TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w600,
+                            color: purpleText),
+                      )),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
