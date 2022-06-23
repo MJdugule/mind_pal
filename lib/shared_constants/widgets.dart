@@ -64,10 +64,13 @@ class GetStartedButton extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       height: MediaQuery.of(context).size.height / 15,
-      decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(10),
-          border:   Border.all(width: 0.8,color: Color(0xFF393c7A),)
-          ),
+      decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            width: 0.8,
+            color: Color(0xFF393c7A),
+          )),
       child: Center(
         child: Text(text,
             style: GoogleFonts.poppins(
@@ -145,11 +148,10 @@ class HomeBox extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
               ],
             ),
-            // LinearPercentIndicator(
-            //   progressColor: Colors.green,
-            //   percent: percent / 10,
-            // ),
-            const Text('LinearPercentIndicator was here'),
+            LinearPercentIndicator(
+              progressColor: Colors.green,
+              percent: percent / 10,
+            ),
             Center(
               child: Text(
                 text,
@@ -513,7 +515,7 @@ class _DigitalTaskBoxState extends State<DigitalTaskBox> {
               Expanded(child: SizedBox()),
               InkWell(
                   onTap: () {},
-                  child: Image.asset('assets/images/icon_pencil.png')),
+                  child: Image.asset('assets/icons/icon_pencil.png')),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Checkbox(
@@ -538,28 +540,31 @@ class _DigitalTaskBoxState extends State<DigitalTaskBox> {
 class BucketContent extends StatelessWidget {
   final String title;
   final String image;
-   const BucketContent({Key? key, required this.title, required this.image}) : super(key: key);
+  const BucketContent({Key? key, required this.title, required this.image})
+      : super(key: key);
 
-   @override
-   Widget build(BuildContext context) {
-     ResConfig().init(context);
-     return Column(
-       children: [
-         Padding(
-           padding:  EdgeInsets.symmetric(  horizontal: ResConfig.screenWidth / 25,),
-           child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-             children: [
-               Text(title,style: GoogleFonts.poppins(fontWeight: FontWeight.w500),),
+  @override
+  Widget build(BuildContext context) {
+    ResConfig().init(context);
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: ResConfig.screenWidth / 25,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+              ),
               Image.asset(image)
-             ],
-           ),
-         ),
-         Divider(
-           color: lightGreyText,
-           height: 2,
-         ),
-       ],
-     );
-   }
- }
+            ],
+          ),
+        ),
+        Divider(),
+      ],
+    );
+  }
+}

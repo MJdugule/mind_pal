@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mind_pal/screens/home/bucket_list/section.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -20,13 +21,15 @@ class _ListNameState extends State<ListName> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
             color: purpleText,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: SingleChildScrollView(
@@ -49,12 +52,16 @@ class _ListNameState extends State<ListName> {
               ),
               Text(
                 "Want some inspo?\nFego's Big Dreams",
-                style: GoogleFonts.poppins(height: 2,fontWeight: FontWeight.w500),
+                style:
+                    GoogleFonts.poppins(height: 2, fontWeight: FontWeight.w500),
               ),
               SizedBox(
                 height: ResConfig.screenHeight / 30,
               ),
-              Text("Add Name", style: GoogleFonts.poppins(fontWeight: FontWeight.w500),),
+              Text(
+                "Add Name",
+                style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+              ),
               const TextField(
                 decoration: InputDecoration(
                     hintText: "Give a name to your list",
@@ -65,7 +72,12 @@ class _ListNameState extends State<ListName> {
                 height: ResConfig.screenHeight / 2.5,
               ),
               GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Section()),
+                    );
+                  },
                   child: const Center(
                       child: GetStartedButton(
                           color: Color(0xFF393c7A),
