@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/shared_tasks/shared_congrats.dart';
 import 'package:mind_pal/shared_constants/components.dart';
-
-import '../../../shared_constants/colours.dart';
-import '../../../shared_constants/res_config.dart';
-import '../../../shared_constants/widgets.dart';
+import 'package:mind_pal/shared_constants/colours.dart';
+import 'package:mind_pal/shared_constants/res_config.dart';
+import 'package:mind_pal/shared_constants/widgets.dart';
 
 class FirstSharedTask extends StatelessWidget {
   const FirstSharedTask({Key? key}) : super(key: key);
