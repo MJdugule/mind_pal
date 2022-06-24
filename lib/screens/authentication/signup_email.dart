@@ -6,6 +6,9 @@ import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
 
+final TextEditingController username = TextEditingController();
+final TextEditingController email = TextEditingController();
+
 class SignupEmailScreen extends StatefulWidget {
   const SignupEmailScreen({Key? key}) : super(key: key);
 
@@ -20,71 +23,35 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 24.0),
-                child: Text(
-                  'Let\'s help you get started',
-                  style: TextStyle(
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.w600,
-                    color: purpleText,
-                  ),
-                ),
-              ),
-              SizedBox(height: ResConfig.screenHeight / 10),
-              AuthTextField(
-                  header: 'Email address or phone number',
-                  hint: 'Enter your email address or phone number',
-                  controller: emailController),
-              AuthTextField(
-                  header: 'Username',
-                  hint: 'Enter a username',
-                  controller: usernameController),
-              SizedBox(height: ResConfig.screenHeight / 7),
-              const Center(
-                child: AuthButton(
-                  route: SignupPasswordScreen(),
-                  text: 'Next',
-                ),
-              ),
-              SizedBox(
-                height: ResConfig.screenHeight / 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Already have an account? ',
-                    style: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w700,
-                        color: blackText),
-                  ),
-                  InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const LoginScreen()));
-                      },
-                      child: const Text(
-                        'Log in',
-                        style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w600,
-                            color: purpleText),
-                      )),
-                ],
-              ),
-            ],
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Let\'s help you get started'),
+          SizedBox(height: 20),
+          Text('Email address or phone number'),
+          TextFormField(
+            controller: email,
+            decoration: InputDecoration(
+                hintText: 'Enter your email address or phone number'),
           ),
-        ),
+          SizedBox(height: 20),
+          Text('Username'),
+          TextFormField(
+            controller: username,
+            decoration: InputDecoration(hintText: 'Enter a username'),
+          ),
+          SizedBox(height: 40),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignupPasswordScreen(),
+                      //maintainState: true,
+                    ));
+              },
+              child: Text('Next')),
+        ],
       ),
     );
   }

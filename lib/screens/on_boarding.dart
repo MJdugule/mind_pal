@@ -81,7 +81,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LoginScreen()));
+                                  builder: (context) => const LoginScreen()));
                         },
                         child: Text(
                           "Get Started",

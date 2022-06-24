@@ -79,7 +79,8 @@ class CreateNewTask extends StatelessWidget {
                   onTap: () {
 
                   },
-                  child: Center(child: GetStartedButton(color: Color(0xFF393c7A), text: 'Save', textColor: Color(0xFFFFFFFF))))
+                  child: Center(child: GetStartedButton(color: Color(0xFF393c7A),
+                   text: 'Save', textColor: Color(0xFFFFFFFF))))
 
             ],
           ),
