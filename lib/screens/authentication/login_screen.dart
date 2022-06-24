@@ -157,7 +157,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           isLoading = false;
                         });
                       },
-                      route: HomeScreen(),
                       text: 'Login',
                     )),
               SizedBox(

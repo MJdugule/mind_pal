@@ -117,7 +117,6 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
                       );
                     }
                   },
-                  route: SignupPasswordScreen(),
                   text: 'Next',
                 ),
               ),

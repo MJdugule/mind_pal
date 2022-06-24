@@ -140,7 +140,6 @@ class _SignupPasswordScreenState extends State<SignupPasswordScreen> {
                             isLoading = false;
                           });
                         },
-                        route: EmailVerificationScreen(),
                         text: 'Next',
                       ),
                     ),

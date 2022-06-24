@@ -147,6 +147,7 @@ class HomeBox extends StatelessWidget {
               progressColor: Colors.green,
               percent: percent / 10,
             ),
+            // Text('LinearPercentIndicator was here'),
             Center(
               child: Text(
                 text,
@@ -381,14 +382,10 @@ class AuthTextField extends StatelessWidget {
 }
 
 class AuthButton extends StatelessWidget {
-  const AuthButton(
-      {Key? key,
-      required this.route,
-      required this.text,
-      required this.onTapped})
+  const AuthButton({Key? key, required this.text, required this.onTapped})
       : super(key: key);
   final onTapped;
-  final Widget route;
+
   final String text;
   @override
   Widget build(BuildContext context) {
