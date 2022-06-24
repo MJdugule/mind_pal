@@ -38,14 +38,13 @@ class _SignupPasswordScreenState extends State<SignupPasswordScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               InkWell(
-                  splashColor: const Color(0xFF959595),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Icon(
-                    Icons.arrow_back,
-                    color: Color(0XFF393C7A),
-                  ),
+                splashColor: const Color(0xFF959595),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: const Icon(
+                  Icons.arrow_back,
+                  color: Color(0XFF393C7A),
                 ),
               ),
               SizedBox(height: ResConfig.screenHeight / 10),

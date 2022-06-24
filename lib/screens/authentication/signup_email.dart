@@ -149,20 +149,20 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
                       )),
                 ],
               ),
+              SizedBox(height: 40),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignupPasswordScreen(),
+                          //maintainState: true,
+                        ));
+                  },
+                  child: Text('Next')),
             ],
           ),
-          SizedBox(height: 40),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SignupPasswordScreen(),
-                      //maintainState: true,
-                    ));
-              },
-              child: Text('Next')),
-        ],
+        ),
       ),
     );
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mind_pal/screens/home/edit_tasks_screen.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
-import 'package:mind_pal/lib/screens/home/edit_tasks_screen.dart';
 import 'colours.dart';
 
 class TaskComponent extends StatelessWidget {
