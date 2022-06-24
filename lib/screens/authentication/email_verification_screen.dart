@@ -20,9 +20,9 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   }
 
   _navigateToNextScreen() async {
-    await Future.delayed(Duration(milliseconds: 3000), () {});
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => GetStartedScreen()));
+    await Future.delayed(const Duration(milliseconds: 3000), () {});
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const GetStartedScreen()));
   }
 
   Widget build(BuildContext context) {
@@ -40,11 +40,11 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   InkWell(
-                      splashColor: Color(0xFF959595),
+                      splashColor: const Color(0xFF959595),
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_back,
                         color: Color(0XFF393C7A),
                       )),
@@ -54,7 +54,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   Text(
                     'Verify your Email',
                     style: GoogleFonts.poppins(
-                        color: Color(0xFF393C7A),
+                        color: const Color(0xFF393C7A),
                         fontSize: 28,
                         fontWeight: FontWeight.w600),
                   ),
@@ -64,7 +64,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   Text(
                     'Please enter the 6 digit code sent to',
                     style: GoogleFonts.poppins(
-                        color: Color(0xFF333333), fontSize: 16),
+                        color: const Color(0xFF333333), fontSize: 16),
                   ),
                   SizedBox(
                     height: ResConfig.screenHeight / 30,
@@ -72,7 +72,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   Text(
                     'sashaoghenefego19@gmail.com',
                     style: GoogleFonts.poppins(
-                        color: Color(0xFF333333),
+                        color: const Color(0xFF333333),
                         fontSize: 16,
                         fontWeight: FontWeight.w700),
                   ),
@@ -88,17 +88,17 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                       Text(
                         'Resend code in',
                         style: GoogleFonts.poppins(
-                            color: Color(0xFF959595),
+                            color: const Color(0xFF959595),
                             fontSize: 14,
                             fontWeight: FontWeight.w600),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Text(
                         '00:30',
                         style: GoogleFonts.poppins(
-                            color: Color(0xFF333333),
+                            color: const Color(0xFF333333),
                             fontSize: 14,
                             fontWeight: FontWeight.w600),
                       )

@@ -14,6 +14,8 @@ import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
 
+import '../../services/database_service.dart';
+
 class SignupPasswordScreen extends StatefulWidget {
   const SignupPasswordScreen({Key? key}) : super(key: key);
 
@@ -29,13 +31,14 @@ class _SignupPasswordScreenState extends State<SignupPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: isLoading
-          ? Center(child: CircularProgressIndicator())
-          : Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                InkWell(
-                  splashColor: Color(0xFF959595),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              InkWell(
+                  splashColor: const Color(0xFF959595),
                   onTap: () {
                     Navigator.pop(context);
                   },
@@ -44,48 +47,80 @@ class _SignupPasswordScreenState extends State<SignupPasswordScreen> {
                     color: Color(0XFF393C7A),
                   ),
                 ),
-                Text('Create a password'),
-                SizedBox(height: 20),
-                Text('Create password'),
-                TextFormField(
-                  controller: password,
-                  decoration:
-                      InputDecoration(hintText: 'Enter a unique password'),
-                ),
-                SizedBox(height: 20),
-                Text('Re-enter password'),
-                TextFormField(
-                  controller: confirmPassword,
-                  decoration:
-                      InputDecoration(hintText: 'Re-enter your password'),
-                ),
-                const SizedBox(height: 40),
-                ElevatedButton(
-                    onPressed: () async {
-                      setState(() {
-                        isLoading = true;
-                      });
-                      if (password.text == confirmPassword.text) {
-                        if (password.text.length >= 6) {
-                          var data = {
-                            "username": username.text,
-                            'email': email.text,
-                            'password': password.text,
-                          };
-                          var res =
-                              await TaskApi().postTask(data, 'user/register');
-                          var body = jsonDecode(res.body);
+              ),
+              SizedBox(height: ResConfig.screenHeight / 10),
+              AuthTextField(
+                header: 'Create a password',
+                hint: 'Enter a unique password',
+                controller: password,
+                keyboardType: TextInputType.visiblePassword,
+                isHidden: true,
+              ),
+              AuthTextField(
+                keyboardType: TextInputType.visiblePassword,
+                isHidden: true,
+                header: 'Re-enter password',
+                hint: 'Re-enter your password',
+                controller: confirmPassword,
+              ),
+              SizedBox(height: ResConfig.screenHeight / 7),
+              isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : Center(
+                      child: AuthButton(
+                        onTapped: () async {
+                          setState(() {
+                            isLoading = true;
+                          });
+                          if (password.text == confirmPassword.text) {
+                            if (password.text.length >= 6) {
+                              var data = {
+                                "username": username.text,
+                                'email': email.text,
+                                'password': password.text,
+                              };
+                              var res = await TaskApi()
+                                  .postTask(data, 'user/register');
+                              var body = jsonDecode(res.body);
 
-                          if (res.statusCode == 200) {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomeScreen()));
+                              if (res.statusCode == 200) {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const EmailVerificationScreen() //HomeScreen(),
+                                      ),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: const Text(
+                                        'Oh something went wrong\nPls check your connection and try again'),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    elevation: 4,
+                                    backgroundColor: Colors.red,
+                                  ),
+                                );
+                              }
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: const Text(
+                                      'The length of password must be more than 6'),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  elevation: 4,
+                                  backgroundColor: Colors.red,
+                                ),
+                              );
+                            }
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: const Text(
-                                    'Oh something went wrong\nPls check your connection and try again'),
+                                content: const Text('Password do not match'),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -94,39 +129,20 @@ class _SignupPasswordScreenState extends State<SignupPasswordScreen> {
                               ),
                             );
                           }
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: const Text(
-                                  'The length of password must be more than 6'),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              elevation: 4,
-                              backgroundColor: Colors.red,
-                            ),
-                          );
-                        }
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: const Text('Password do not match'),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            elevation: 4,
-                            backgroundColor: Colors.red,
-                          ),
-                        );
-                      }
-
-                      setState(() {
-                        isLoading = false;
-                      });
-                    },
-                    child: const Text('Next')),
-              ],
-            ),
+                          setState(() {
+                            isLoading = false;
+                          });
+                        },
+                        text: 'Next',
+                      ),
+                    ),
+              SizedBox(
+                height: ResConfig.screenHeight / 30,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

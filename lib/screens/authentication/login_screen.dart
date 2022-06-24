@@ -17,8 +17,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   bool isLoading = false;
 
   @override
@@ -26,42 +26,96 @@ class _LoginScreenState extends State<LoginScreen> {
     ResConfig().init(context);
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-                padding: const EdgeInsets.all(16.0),
-                height: ResConfig.screenHeight / 3,
-                child: Image.asset('assets/images/login_welcome.png')),
-            const Text('Email address or username'),
-            TextFormField(
-              controller: _email,
-              decoration: const InputDecoration(
-                  hintText: 'Enter your email address or username'),
-            ),
-            const SizedBox(height: 20),
-            const Text('Password'),
-            TextFormField(
-              controller: _password,
-              decoration:
-                  const InputDecoration(hintText: 'Enter your password'),
-            ),
-            Center(
-              child: isLoading && _password.text.isNotEmpty
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Container(
+                    padding: const EdgeInsets.all(16.0),
+                    height: ResConfig.screenHeight / 3,
+                    child: Image.asset('assets/images/login_welcome.png')),
+              ),
+              AuthTextField(
+                header: 'Email address or username',
+                hint: 'Enter your email address or username',
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+                isHidden: false,
+              ),
+              AuthTextField(
+                isHidden: true,
+                keyboardType: TextInputType.visiblePassword,
+                header: 'Password',
+                hint: 'Enter your password',
+                controller: _passwordController,
+              ),
+              SizedBox(
+                height: ResConfig.screenHeight / 20,
+              ),
+              Row(
+                children: const [
+                  Expanded(
+                      child: Divider(
+                    color: dividerColor,
+                  )),
+                  Padding(
+                    padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                    child: Text(
+                      'Or continue with',
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w600,
+                          color: blackText),
+                    ),
+                  ),
+                  Expanded(child: Divider(color: dividerColor)),
+                ],
+              ),
+              SizedBox(
+                height: ResConfig.screenHeight / 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      print('google');
+                    },
+                    child: Image.asset('assets/images/google.png'),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      print('facebook');
+                    },
+                    child: Image.asset('assets/images/facebook.png'),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      print('apple');
+                    },
+                    child: Image.asset('assets/images/apple.png'),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: ResConfig.screenHeight / 30,
+              ),
+              isLoading && _passwordController.text.isNotEmpty
                   ? const CircularProgressIndicator()
-                  : ElevatedButton(
-                      onPressed: () async {
+                  : Center(
+                      child: AuthButton(
+                      onTapped: () async {
                         setState(() {
                           isLoading = true;
                         });
-                        if (_password.text.isNotEmpty &&
-                            _email.text.isNotEmpty) {
+                        if (_passwordController.text.isNotEmpty &&
+                            _emailController.text.isNotEmpty) {
                           var data = {
-                            "email": _email.text.trim(),
-                            "password": _password.text.trim(),
+                            "email": _emailController.text.trim(),
+                            "password": _passwordController.text.trim(),
                           };
                           var res =
                               await TaskApi().postTask(data, 'user/login');
@@ -103,46 +157,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           isLoading = false;
                         });
                       },
-                      child: const Text('Login')),
-            ),
-            Row(
-              children: const [
-                Expanded(child: Divider()),
-                Text('Or continue with'),
-                Expanded(child: Divider()),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                InkWell(
-                  onTap: () {
-                    print('google');
-                  },
-                  child: Image.asset('assets/images/google.png'),
-                ),
-                InkWell(
-                  onTap: () {
-                    print('facebook');
-                  },
-                  child: Image.asset('assets/images/facebook.png'),
-                ),
-                InkWell(
-                  onTap: () {
-                    print('apple');
-                  },
-                  child: Image.asset('assets/images/apple.png'),
-                ),
-              ],
-            ),
-              SizedBox(
-                height: ResConfig.screenHeight / 30,
-              ),
-              const Center(
-                  child: AuthButton(
-                route: HomeScreen(),
-                text: 'Login',
-              )),
+                      text: 'Login',
+                    )),
               SizedBox(
                 height: ResConfig.screenHeight / 30,
               ),
@@ -161,7 +177,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignupEmailScreen()));
+                                builder: (context) =>
+                                    const SignupEmailScreen()));
                       },
                       child: const Text(
                         'Create an account',
