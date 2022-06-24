@@ -3,10 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/home.dart';
 import 'package:mind_pal/screens/splashscreen.dart';
 
-// int? initScreen;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await preferences.setInt('initScreen', 1);
   runApp(MyApp());
 }
 
