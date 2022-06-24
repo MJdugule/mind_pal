@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
-//import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class ContentTile extends StatelessWidget {
   const ContentTile({
@@ -609,14 +609,11 @@ class SharedContent extends StatelessWidget {
   }
 }
 
-Widget buildMembersContainer( String image)=> Container(
-  width: 30,
-  height: 70,
-  child:   CircleAvatar(
-
-    radius: 25,
-
-    backgroundImage: AssetImage(image),
-
-  ),
-);
+Widget buildMembersContainer(String image) => Container(
+      width: 30,
+      height: 70,
+      child: CircleAvatar(
+        radius: 25,
+        backgroundImage: AssetImage(image),
+      ),
+    );

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../shared_constants/colours.dart';
-import '../../../shared_constants/res_config.dart';
-import '../../../shared_constants/widgets.dart';
-import '../home.dart';
+import 'package:mind_pal/shared_constants/colours.dart';
+import 'package:mind_pal/shared_constants/res_config.dart';
+import 'package:mind_pal/shared_constants/widgets.dart';
+import 'package:mind_pal/screens/home/home.dart';
 
 class SharedCongrats extends StatelessWidget {
   const SharedCongrats({Key? key}) : super(key: key);

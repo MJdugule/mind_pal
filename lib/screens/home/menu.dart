@@ -4,7 +4,7 @@ import 'package:mind_pal/screens/home/bucket_list/bucket_congrats.dart';
 import 'package:mind_pal/screens/home/bucket_list/bucket_digital.dart';
 import 'package:mind_pal/screens/home/bucket_list/bucket_welcome.dart';
 import 'package:mind_pal/screens/home/home.dart';
-import 'package:mind_pal/screens/home/shared_task/shared_welcome.dart';
+import 'package:mind_pal/screens/home/shared_tasks/shared_welcome.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
