@@ -1,12 +1,15 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mind_pal/screens/authentication/email_verification_screen.dart';
 import 'package:mind_pal/screens/authentication/getstarted_screen.dart';
 import 'package:mind_pal/screens/authentication/phone_verification_screen.dart';
 import 'package:mind_pal/screens/authentication/signup_email.dart';
+import 'package:mind_pal/screens/authentication/signup_email.dart';
 import 'package:mind_pal/screens/home/home.dart';
+import 'package:mind_pal/screens/on_boarding.dart';
+import '../../services/database_service.dart';
+import 'signup_email.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -42,15 +45,6 @@ class _SignupPasswordScreenState extends State<SignupPasswordScreen> {
                   child: const Icon(
                     Icons.arrow_back,
                     color: Color(0XFF393C7A),
-                  )),
-              const Padding(
-                padding: EdgeInsets.only(top: 24.0),
-                child: Text(
-                  'Create a password',
-                  style: TextStyle(
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.w600,
-                    color: purpleText,
                   ),
                 ),
               ),
@@ -135,7 +129,6 @@ class _SignupPasswordScreenState extends State<SignupPasswordScreen> {
                               ),
                             );
                           }
-
                           setState(() {
                             isLoading = false;
                           });

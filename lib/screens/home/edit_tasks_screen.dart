@@ -1,12 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mind_pal/screens/home/alltasks.dart';
 import 'package:mind_pal/screens/home/saved.dart';
+import 'package:mind_pal/shared_constants/colours.dart';
+import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
-
-import '../../shared_constants/colours.dart';
-import '../../shared_constants/res_config.dart';
 
 class EditTasksScreen extends StatefulWidget {
   const EditTasksScreen(
@@ -24,45 +21,47 @@ class _EditTasksScreenState extends State<EditTasksScreen> {
   Widget build(BuildContext context) {
     ResConfig().init(context);
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.only(
-            left: ResConfig.screenWidth / 13,
-            top: ResConfig.screenWidth / 5,
-            right: ResConfig.screenWidth / 23,
+      appBar: AppBar(
+        title: Text(
+          'Edit Task',
+          style: GoogleFonts.poppins(
+            fontWeight: FontWeight.w700,
+            color: purpleText,
+            fontSize: 25,
           ),
+        ),
+        elevation: 0,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Image.asset('assets/icons/back.png'),
+        ),
+        backgroundColor: Colors.transparent,
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: ResConfig.screenWidth / 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(Icons.arrow_back, color: purpleText)),
-              SizedBox(
-                height: ResConfig.screenWidth / 20,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(widget.taskTitle,
+                      style: GoogleFonts.poppins(
+                          color: menuText,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600)),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/icons/delete.png',
+                      height: 20,
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                'Edit Task',
-                style: GoogleFonts.poppins(
-                    color: purpleText,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w600),
-              ),
-              SizedBox(
-                height: ResConfig.screenWidth / 20,
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Text(widget.taskTitle,
-                    style: GoogleFonts.poppins(
-                        color: menuText,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600)),
-                Image.asset(
-                  'assets/icons/delete.png',
-                  height: 20,
-                ),
-              ]),
               SizedBox(
                 height: ResConfig.screenWidth / 10,
               ),
@@ -75,7 +74,7 @@ class _EditTasksScreenState extends State<EditTasksScreen> {
                         fontSize: 14,
                         fontWeight: FontWeight.w600),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.keyboard_arrow_down_sharp,
                     color: purpleText,
                   )
@@ -100,16 +99,16 @@ class _EditTasksScreenState extends State<EditTasksScreen> {
                 ],
               ),
               SizedBox(
-                height: ResConfig.screenHeight / 20,
+                height: ResConfig.screenHeight / 30,
               ),
               Row(
                 children: [
-                  Image.asset(
-                    'assets/icons/Icon Artwork.png',
-                    height: 20,
-                  ),
-                  SizedBox(
-                    width: 10,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/icons/Icon Artwork.png',
+                      height: 20,
+                    ),
                   ),
                   Text(
                     'Thu, Jun 30, 2022',
@@ -121,16 +120,16 @@ class _EditTasksScreenState extends State<EditTasksScreen> {
                 ],
               ),
               SizedBox(
-                height: ResConfig.screenHeight / 20,
+                height: ResConfig.screenHeight / 30,
               ),
               Row(
                 children: [
-                  Image.asset(
-                    'assets/icons/clock.png',
-                    height: 40,
-                  ),
-                  SizedBox(
-                    width: 5,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/icons/clock.png',
+                      height: 40,
+                    ),
                   ),
                   Text(
                     '14:00 - 15:00',
@@ -144,16 +143,16 @@ class _EditTasksScreenState extends State<EditTasksScreen> {
                 ],
               ),
               SizedBox(
-                height: ResConfig.screenHeight / 20,
+                height: ResConfig.screenHeight / 30,
               ),
               Row(
                 children: [
-                  Image.asset(
-                    'assets/icons/bell-outline.png',
-                    height: 40,
-                  ),
-                  SizedBox(
-                    width: 2,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/icons/bell-outline.png',
+                      height: 40,
+                    ),
                   ),
                   Text(
                     '30 minutes before',
@@ -169,12 +168,10 @@ class _EditTasksScreenState extends State<EditTasksScreen> {
               SizedBox(height: ResConfig.screenHeight / 10),
               GestureDetector(
                   onTap: () {
-                      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) =>  SavedScreen()));
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => SavedScreen()));
                   },
-                  child: Center(
+                  child: const Center(
                       child: GetStartedButton(
                           color: Color(0xFF393c7A),
                           text: 'Save changes',

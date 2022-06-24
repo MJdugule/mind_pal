@@ -64,8 +64,13 @@ class GetStartedButton extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       height: MediaQuery.of(context).size.height / 15,
-      decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            width: 0.8,
+            color: Color(0xFF393c7A),
+          )),
       child: Center(
         child: Text(text,
             style: GoogleFonts.poppins(
@@ -307,7 +312,8 @@ class _SwitchWidgetState extends State<SwitchWidget> {
 }
 
 class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({Key? key}) : super(key: key);
+  const TextFieldWidget({Key? key, required this.hintText}) : super(key: key);
+  final String hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -317,7 +323,7 @@ class TextFieldWidget extends StatelessWidget {
             color: textFieldTextColor,
             fontSize: 15,
             fontWeight: FontWeight.w500),
-        hintText: 'Give a name to your task',
+        hintText: hintText,
         border: InputBorder.none,
       ),
     );
@@ -515,7 +521,7 @@ class _DigitalTaskBoxState extends State<DigitalTaskBox> {
               Expanded(child: SizedBox()),
               InkWell(
                   onTap: () {},
-                  child: Image.asset('assets/images/icon_pencil.png')),
+                  child: Image.asset('assets/icons/icon_pencil.png')),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Checkbox(
@@ -536,3 +542,81 @@ class _DigitalTaskBoxState extends State<DigitalTaskBox> {
     );
   }
 }
+
+class BucketContent extends StatelessWidget {
+  final String title;
+  final String image;
+  const BucketContent({Key? key, required this.title, required this.image})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    ResConfig().init(context);
+    return Column(
+      children: [
+        Container(
+          height: ResConfig.screenHeight / 20,
+          padding: EdgeInsets.symmetric(
+            horizontal: ResConfig.screenWidth / 25,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+              ),
+              Image.asset(image)
+            ],
+          ),
+        ),
+        Divider(),
+      ],
+    );
+  }
+}
+
+class SharedContent extends StatelessWidget {
+  final String title;
+  final String image;
+  const SharedContent({Key? key, required this.title, required this.image})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    ResConfig().init(context);
+    return Column(
+      children: [
+        Container(
+          height: ResConfig.screenHeight / 20,
+          padding: EdgeInsets.symmetric(
+            horizontal: ResConfig.screenWidth / 25,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+              ),
+              Image.asset(image)
+            ],
+          ),
+        ),
+        Divider(),
+      ],
+    );
+  }
+}
+
+Widget buildMembersContainer( String image)=> Container(
+  width: 30,
+  height: 70,
+  child:   CircleAvatar(
+
+    radius: 25,
+
+    backgroundImage: AssetImage(image),
+
+  ),
+);

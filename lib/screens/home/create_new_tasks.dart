@@ -29,7 +29,7 @@ class CreateNewTask extends StatelessWidget {
               SizedBox(height: ResConfig.screenWidth / 10),
               Text('Add Title', style: GoogleFonts.poppins(color: menuText, fontSize: 15, fontWeight: FontWeight.w600)),
               SizedBox(height: ResConfig.screenWidth / 30),
-              TextFieldWidget(),
+              TextFieldWidget(hintText: 'Give a name to your task',),
               SizedBox(height: ResConfig.screenWidth / 10),
               Row(
                 children: [
@@ -79,7 +79,8 @@ class CreateNewTask extends StatelessWidget {
                   onTap: () {
 
                   },
-                  child: Center(child: GetStartedButton(color: Color(0xFF393c7A), text: 'Save', textColor: Color(0xFFFFFFFF))))
+                  child: Center(child: GetStartedButton(color: Color(0xFF393c7A),
+                   text: 'Save', textColor: Color(0xFFFFFFFF))))
 
             ],
           ),
