@@ -4,6 +4,7 @@ import 'package:mind_pal/screens/home/bucket_list/bucket_congrats.dart';
 import 'package:mind_pal/screens/home/bucket_list/bucket_digital.dart';
 import 'package:mind_pal/screens/home/bucket_list/bucket_welcome.dart';
 import 'package:mind_pal/screens/home/home.dart';
+import 'package:mind_pal/screens/home/shared_task/shared_welcome.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -73,7 +74,14 @@ class _MenuState extends State<Menu> {
                       },
                       child: MenuBox(color: redMenuBox, text: 'All Tasks')),
                   MenuBox(color: lilacMenuBox, text: 'Today\'s Tasks'),
-                  MenuBox(color: purpleMenuBox, text: 'Shared Tasks'),
+                  InkWell(
+                    onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SharedTask()));
+                      },
+                      child: MenuBox(color: purpleMenuBox, text: 'Shared Tasks')),
                   InkWell(
                       onTap: () {
                         Navigator.push(
