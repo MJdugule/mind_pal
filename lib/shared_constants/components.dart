@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mind_pal/shared_constants/widgets.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../screens/home/edit_tasks_screen.dart';
 import 'colours.dart';
@@ -50,5 +52,68 @@ class TaskComponent extends StatelessWidget {
         child: Text('Edit', style: GoogleFonts.poppins(color: purpleText, fontSize: 14, fontWeight: FontWeight.w700),)))
     ],
     ))] );
+  }
+}
+
+class FirstSharedTaskComponent extends StatelessWidget {
+  const FirstSharedTaskComponent({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: 20, top: 10, right: 5),
+      width: 361,
+      height: 130,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Color(0xFFF6F5F5),
+          width: 3,
+        )
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Design Thinking', style: GoogleFonts.poppins(fontSize: 16,color: taskDarkText,fontWeight: FontWeight.w600),),
+                CircularPercentIndicator(
+                    radius: 20,
+                  lineWidth: 2,
+                  animation: false,
+                  percent: 0.0,
+                  center: Text('0%', style: GoogleFonts.poppins(color: Color(0xFF525252),fontSize: 14, fontWeight: FontWeight.w500),),
+                  progressColor: lightPurpleText,
+                  backgroundColor: Colors.grey.shade300,
+                  circularStrokeCap: CircularStrokeCap.round,
+                )
+              ],
+            ),
+          ),
+
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text('Discussing details of the Bar\nproject', style: GoogleFonts.poppins(fontSize: 12, color: lightGreyText),),
+                  SizedBox(width: 15,),
+                  buildMembersContainer('assets/images/barth.jpg'),
+                  const SizedBox(width: 1,),
+                  buildMembersContainer('assets/images/matt.jpg'),
+                  const SizedBox(width: 1,),
+                  buildMembersContainer('assets/images/steve.jpg'),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

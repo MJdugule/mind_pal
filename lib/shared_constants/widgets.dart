@@ -306,7 +306,8 @@ class _SwitchWidgetState extends State<SwitchWidget> {
 }
 
 class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({Key? key}) : super(key: key);
+  const TextFieldWidget({Key? key, required this.hintText}) : super(key: key);
+  final String hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -316,7 +317,7 @@ class TextFieldWidget extends StatelessWidget {
             color: textFieldTextColor,
             fontSize: 15,
             fontWeight: FontWeight.w500),
-        hintText: 'Give a name to your task',
+        hintText: hintText,
         border: InputBorder.none,
       ),
     );
@@ -531,3 +532,15 @@ class _DigitalTaskBoxState extends State<DigitalTaskBox> {
     );
   }
 }
+
+Widget buildMembersContainer( String image)=> Container(
+  width: 30,
+  height: 70,
+  child:   CircleAvatar(
+
+    radius: 25,
+
+    backgroundImage: AssetImage(image),
+
+  ),
+);
