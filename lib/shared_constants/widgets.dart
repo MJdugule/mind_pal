@@ -548,7 +548,41 @@ class BucketContent extends StatelessWidget {
     ResConfig().init(context);
     return Column(
       children: [
-        Padding(
+        Container(
+          height: ResConfig.screenHeight / 20,
+          padding: EdgeInsets.symmetric(
+            horizontal: ResConfig.screenWidth / 25,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+              ),
+              Image.asset(image)
+            ],
+          ),
+        ),
+        Divider(),
+      ],
+    );
+  }
+}
+
+class SharedContent extends StatelessWidget {
+  final String title;
+  final String image;
+  const SharedContent({Key? key, required this.title, required this.image})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    ResConfig().init(context);
+    return Column(
+      children: [
+        Container(
+          height: ResConfig.screenHeight / 20,
           padding: EdgeInsets.symmetric(
             horizontal: ResConfig.screenWidth / 25,
           ),
