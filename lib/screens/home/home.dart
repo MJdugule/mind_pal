@@ -121,9 +121,10 @@ class _HomeScreenState extends State<HomeScreen> {
               const Text(
                 'Ongoing Tasks',
                 style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    color: purpleText,
-                    fontSize: 20,),
+                  fontWeight: FontWeight.w700,
+                  color: purpleText,
+                  fontSize: 20,
+                ),
               ),
               Container(
                 height: ResConfig.screenHeight / 2,

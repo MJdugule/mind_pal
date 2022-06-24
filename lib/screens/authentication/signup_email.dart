@@ -6,6 +6,9 @@ import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
 
+final TextEditingController username = TextEditingController();
+final TextEditingController email = TextEditingController();
+
 class SignupEmailScreen extends StatefulWidget {
   const SignupEmailScreen({Key? key}) : super(key: key);
 
@@ -14,9 +17,6 @@ class SignupEmailScreen extends StatefulWidget {
 }
 
 class _SignupEmailScreenState extends State<SignupEmailScreen> {
-  final emailController = TextEditingController();
-  final usernameController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,14 +41,82 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
               AuthTextField(
                   header: 'Email address or phone number',
                   hint: 'Enter your email address or phone number',
-                  controller: emailController),
+                  keyboardType: TextInputType.emailAddress,
+                  isHidden: false,
+                  controller: email),
               AuthTextField(
-                  header: 'Username',
-                  hint: 'Enter a username',
-                  controller: usernameController),
+                header: 'Username',
+                hint: 'Enter a username',
+                isHidden: false,
+                keyboardType: TextInputType.name,
+                controller: username,
+              ),
               SizedBox(height: ResConfig.screenHeight / 7),
-              const Center(
+              Center(
                 child: AuthButton(
+                  onTapped: () {
+                    if (email.text.trim().isNotEmpty) {
+                      if (username.text.trim().isNotEmpty) {
+                        if (email.text.contains('@')) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const SignupPasswordScreen(),
+                                //maintainState: true,
+                              ));
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: const Text(
+                                'Must contain "@"',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              elevation: 4,
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                        }
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: const Text(
+                              'Username cannot be empty',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            elevation: 4,
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                      }
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: const Text(
+                            'Email cannot be empty',
+                            textAlign: TextAlign.center,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          elevation: 4,
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                  },
                   route: SignupPasswordScreen(),
                   text: 'Next',
                 ),

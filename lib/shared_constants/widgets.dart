@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+//import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class ContentTile extends StatelessWidget {
   const ContentTile({
@@ -324,11 +324,15 @@ class TextFieldWidget extends StatelessWidget {
 }
 
 class AuthTextField extends StatelessWidget {
+  final bool isHidden;
+  final TextInputType keyboardType;
   const AuthTextField({
     Key? key,
     required this.header,
     required this.hint,
     required this.controller,
+    required this.isHidden,
+    required this.keyboardType,
   }) : super(key: key);
 
   final String header;
@@ -359,6 +363,8 @@ class AuthTextField extends StatelessWidget {
           ),
           child: TextFormField(
             controller: controller,
+            obscureText: isHidden,
+            keyboardType: keyboardType,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: hint,
@@ -375,17 +381,19 @@ class AuthTextField extends StatelessWidget {
 }
 
 class AuthButton extends StatelessWidget {
-  const AuthButton({Key? key, required this.route, required this.text})
+  const AuthButton(
+      {Key? key,
+      required this.route,
+      required this.text,
+      required this.onTapped})
       : super(key: key);
-
+  final onTapped;
   final Widget route;
   final String text;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => route));
-      },
+      onPressed: onTapped,
       style: ButtonStyle(
         padding: MaterialStateProperty.all(
             const EdgeInsets.symmetric(vertical: 16.0, horizontal: 100.0)),

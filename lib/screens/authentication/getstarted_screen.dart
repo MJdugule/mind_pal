@@ -16,33 +16,55 @@ class GetStartedScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left:ResConfig.screenWidth /13, right: ResConfig.screenWidth/30, top: ResConfig.screenWidth / 5),
+          padding: EdgeInsets.only(
+            left: ResConfig.screenWidth / 13,
+            right: ResConfig.screenWidth / 30,
+            top: ResConfig.screenWidth / 5,
+          ),
           child: Center(
             child: Column(
               children: [
                 Image.asset('assets/images/get_started.png'),
-                SizedBox(height: ResConfig.screenHeight / 20,),
-                Text('Congratulations!',style: GoogleFonts.poppins(color: Color(0xFF393C7A), fontSize: 28, fontWeight: FontWeight.w700),),
-                SizedBox(height: ResConfig.screenHeight / 45,),
-                Text('You have successfully created your account',style: GoogleFonts.poppins(color: Color(0xFF393C7A), fontSize: 13, fontWeight: FontWeight.w600),),
-                SizedBox(height: ResConfig.screenHeight / 10,),
+                SizedBox(
+                  height: ResConfig.screenHeight / 20,
+                ),
+                Text(
+                  'Congratulations!',
+                  style: GoogleFonts.poppins(
+                      color: const Color(0xFF393C7A),
+                      fontSize: 28,
+                      fontWeight: FontWeight.w700),
+                ),
+                SizedBox(
+                  height: ResConfig.screenHeight / 45,
+                ),
+                Text(
+                  'You have successfully created your account',
+                  style: GoogleFonts.poppins(
+                      color: const Color(0xFF393C7A),
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  height: ResConfig.screenHeight / 10,
+                ),
                 GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
-      
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()));
                     },
-                    child: GetStartedButton(color: Color(0xFF393c7A), text: 'Get Started', textColor: Color(0xFFFFFFFF)))
-      
-      
+                    child: const GetStartedButton(
+                        color: Color(0xFF393c7A),
+                        text: 'Get Started',
+                        textColor: Color(0xFFFFFFFF)))
               ],
             ),
           ),
-      
-      
         ),
       ),
     );
   }
 }
 // 0235571375
-
