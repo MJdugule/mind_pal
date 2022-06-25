@@ -37,13 +37,17 @@ class TaskComponent extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    taskTitle,
-                    style: GoogleFonts.poppins(
-                        color: taskDarkText,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500),
+                  SizedBox(
+                    width: ResConfig.screenWidth / 1.6,
+                    child: Text(
+                      taskTitle,
+                      style: GoogleFonts.poppins(
+                          color: taskDarkText,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                   Spacer(),
                   Image.asset('assets/icons/bell-ring-outline.png'),
