@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/edit_tasks_screen.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
-//import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'colours.dart';
 
 class TaskComponent extends StatelessWidget {
@@ -37,13 +37,17 @@ class TaskComponent extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    taskTitle,
-                    style: GoogleFonts.poppins(
-                        color: taskDarkText,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500),
+                  SizedBox(
+                    width: ResConfig.screenWidth / 1.6,
+                    child: Text(
+                      taskTitle,
+                      style: GoogleFonts.poppins(
+                          color: taskDarkText,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                   Spacer(),
                   Image.asset('assets/icons/bell-ring-outline.png'),
@@ -99,11 +103,12 @@ class FirstSharedTaskComponent extends StatelessWidget {
       width: 361,
       height: 130,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: Color(0xFFF6F5F5),
-            width: 3,
-          )),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Color(0xFFF6F5F5),
+          width: 3,
+        )
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -112,33 +117,21 @@ class FirstSharedTaskComponent extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Design Thinking',
-                  style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color: taskDarkText,
-                      fontWeight: FontWeight.w600),
-                ),
-                Text('LinearPercentIndicator was here'),
-                // CircularPercentIndicator(
-                //   radius: 20,
-                //   lineWidth: 2,
-                //   animation: false,
-                //   percent: 0.0,
-                //   center: Text(
-                //     '0%',
-                //     style: GoogleFonts.poppins(
-                //         color: Color(0xFF525252),
-                //         fontSize: 14,
-                //         fontWeight: FontWeight.w500),
-                //   ),
-                //   progressColor: lightPurpleText,
-                //   backgroundColor: Colors.grey.shade300,
-                //   circularStrokeCap: CircularStrokeCap.round,
-                // ),
+                Text('Design Thinking', style: GoogleFonts.poppins(fontSize: 16,color: taskDarkText,fontWeight: FontWeight.w600),),
+                CircularPercentIndicator(
+                    radius: 20,
+                  lineWidth: 2,
+                  animation: false,
+                  percent: 0.0,
+                  center: Text('0%', style: GoogleFonts.poppins(color: Color(0xFF525252),fontSize: 14, fontWeight: FontWeight.w500),),
+                  progressColor: lightPurpleText,
+                  backgroundColor: Colors.grey.shade300,
+                  circularStrokeCap: CircularStrokeCap.round,
+                )
               ],
             ),
           ),
+
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(right: 10),
@@ -146,22 +139,12 @@ class FirstSharedTaskComponent extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'Discussing details of the Bar\nproject',
-                    style:
-                        GoogleFonts.poppins(fontSize: 12, color: lightGreyText),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
+                  Text('Discussing details of the Bar\nproject', style: GoogleFonts.poppins(fontSize: 12, color: lightGreyText),),
+                  SizedBox(width: 15,),
                   buildMembersContainer('assets/images/barth.jpg'),
-                  const SizedBox(
-                    width: 1,
-                  ),
+                  const SizedBox(width: 1,),
                   buildMembersContainer('assets/images/matt.jpg'),
-                  const SizedBox(
-                    width: 1,
-                  ),
+                  const SizedBox(width: 1,),
                   buildMembersContainer('assets/images/steve.jpg'),
                 ],
               ),

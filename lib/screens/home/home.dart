@@ -21,6 +21,25 @@ class _HomeScreenState extends State<HomeScreen> {
     const Drawer();
   }
 
+  List tasks = [
+    const HomeTaskBox(
+        taskCategory: 'Personal',
+        taskTitle: 'Take Casper for a walk',
+        taskTime: '15:00 - 16:00'),
+    const HomeTaskBox(
+        taskCategory: 'Work',
+        taskTitle: 'Stakeholders meeting',
+        taskTime: '17:00 - 18:00'),
+    const HomeTaskBox(
+        taskCategory: 'Personal',
+        taskTitle: 'Take Casper for a walk',
+        taskTime: '15:00 - 16:00'),
+    const HomeTaskBox(
+        taskCategory: 'Work',
+        taskTitle: 'Stakeholders meeting',
+        taskTime: '17:00 - 18:00'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     ResConfig().init(context);
@@ -29,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
       drawerEnableOpenDragGesture: true,
       drawer: Drawer(
         child: const Menu(),
-        //    width: ResConfig.screenWidth,
+        width: ResConfig.screenWidth,
       ),
       appBar: AppBar(
         iconTheme: const IconThemeData(
@@ -113,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: ResConfig.screenHeight / 20,
               ),
               const Text(
-                'Ongoing Tasks',
+                'Tasks',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   color: purpleText,
@@ -125,9 +144,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemBuilder: ((context, index) {
-                    return HomeTaskBox();
+                    return tasks[index];
                   }),
-                  itemCount: 4,
+                  itemCount: tasks.length,
                 ),
               ),
             ],

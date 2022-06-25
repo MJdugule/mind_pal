@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mind_pal/screens/home/edit_tasks_screen.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 //import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -149,11 +150,11 @@ class HomeBox extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
               ],
             ),
-            // LinearPercentIndicator(
-            //   progressColor: Colors.green,
-            //   percent: percent / 10,
-            // ),
-            Text('LinearPercentIndicator was here'),
+            LinearPercentIndicator(
+              progressColor: Colors.green,
+              percent: percent / 10,
+            ),
+            // Text('LinearPercentIndicator was here'),
             Center(
               child: Text(
                 text,
@@ -202,24 +203,27 @@ class WWYLTDBox extends StatelessWidget {
   }
 }
 
-class HomeTaskBox extends StatefulWidget {
-  const HomeTaskBox({Key? key}) : super(key: key);
+class HomeTaskBox extends StatelessWidget {
+  const HomeTaskBox({
+    Key? key,
+    required this.taskCategory,
+    required this.taskTitle,
+    required this.taskTime,
+  }) : super(key: key);
+  final String taskCategory;
+  final String taskTitle;
+  final String taskTime;
 
-  @override
-  State<HomeTaskBox> createState() => _HomeTaskBoxState();
-}
-
-class _HomeTaskBoxState extends State<HomeTaskBox> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
+        Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
-            'Personal',
-            style: TextStyle(
+            taskCategory,
+            style: const TextStyle(
                 fontWeight: FontWeight.w600,
                 color: lightPurpleText,
                 fontSize: 16),
@@ -236,17 +240,17 @@ class _HomeTaskBoxState extends State<HomeTaskBox> {
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    'Take Casper for a walk',
-                    style: TextStyle(
+                    taskTitle,
+                    style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         color: blackText,
                         fontSize: 16),
                   ),
                   Text(
-                    '15:00 - 16:00',
-                    style: TextStyle(
+                    taskTime,
+                    style: const TextStyle(
                         fontWeight: FontWeight.w600,
                         color: blackText,
                         fontSize: 15),
@@ -261,14 +265,27 @@ class _HomeTaskBoxState extends State<HomeTaskBox> {
             ],
           ),
         ),
-        const Align(
+        Align(
           alignment: Alignment.centerRight,
           child: Padding(
             padding: EdgeInsets.only(top: 8.0),
-            child: Text(
-              'Edit',
-              style: TextStyle(
-                  fontWeight: FontWeight.w700, color: purpleText, fontSize: 14),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const EditTasksScreen(
+                              taskCategory: 'Personal',
+                              taskTitle: 'Take Casper for a walk',
+                            )));
+              },
+              child: const Text(
+                'Edit',
+                style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: purpleText,
+                    fontSize: 14),
+              ),
             ),
           ),
         ),

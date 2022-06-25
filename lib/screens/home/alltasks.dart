@@ -21,12 +21,12 @@ class _AllTasksScreenState extends State<AllTasksScreen> {
   List tasks = [
     const TaskComponent(
         taskCategory: 'Personal',
-        taskTitle: 'Do Chores',
+        taskTitle: 'Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores Do Chores ',
         taskTime: '09:00 - 10:30'),
     const TaskComponent(
         taskCategory: 'Personal',
         taskTitle: 'Buy Groceries',
-        taskTime: '11:00 - 12:00'),
+        taskTime: '11:00 - 13:00'),
     const TaskComponent(
         taskCategory: 'Work',
         taskTitle: 'Respond to Emails',
@@ -245,6 +245,12 @@ class _AllTasksScreenState extends State<AllTasksScreen> {
                         child: Text('Pls check your data connections'));
                   }
                 },
+//               child: ListView.builder(
+//                 shrinkWrap: true,
+//                 itemBuilder: ((context, index) {
+//                   return tasks[index];
+//                 }),
+//                 itemCount: tasks.length,
               ),
             ),
             Align(
@@ -253,6 +259,7 @@ class _AllTasksScreenState extends State<AllTasksScreen> {
                 onPressed: () {
                   getAllTask();
                 },
+//                 onPressed: null,
                 label: const Icon(
                   Icons.keyboard_arrow_down_rounded,
                   color: purpleText,

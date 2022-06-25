@@ -9,6 +9,8 @@ import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
 
+import '../../services/database_service.dart';
+
 class SignupPasswordScreen extends StatefulWidget {
   const SignupPasswordScreen({Key? key}) : super(key: key);
 

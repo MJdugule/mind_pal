@@ -110,6 +110,7 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
                             duration: const Duration(seconds: 2),
                             content: const Text(
                               'Email cannot be empty',
+
                               textAlign: TextAlign.center,
                             ),
                             shape: RoundedRectangleBorder(
