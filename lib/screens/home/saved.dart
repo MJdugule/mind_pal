@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mind_pal/screens/home/alltasks.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 
@@ -17,7 +18,10 @@ class SavedScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AllTasksScreen()));
                 },
                 child: const Icon(Icons.arrow_back)),
           ),

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mind_pal/screens/home/bucket_list/name_list.dart';
+import 'package:mind_pal/screens/home/shared_tasks/label_space.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
 
-class BucketList extends StatefulWidget {
-  const BucketList({Key? key}) : super(key: key);
+class SharedTask extends StatefulWidget {
+  const SharedTask({Key? key}) : super(key: key);
 
   @override
-  State<BucketList> createState() => _BucketListState();
+  State<SharedTask> createState() => _SharedTaskState();
 }
 
-class _BucketListState extends State<BucketList> {
+class _SharedTaskState extends State<SharedTask> {
   @override
   Widget build(BuildContext context) {
     ResConfig().init(context);
@@ -24,7 +26,9 @@ class _BucketListState extends State<BucketList> {
             Icons.arrow_back,
             color: purpleText,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: ListView(
@@ -44,7 +48,7 @@ class _BucketListState extends State<BucketList> {
                       fontWeight: FontWeight.w500),
                 ),
                 Text(
-                  "Bucket List!",
+                  "Shared Tasks!",
                   style: GoogleFonts.poppins(
                       color: purpleText,
                       fontSize: 25,
@@ -54,14 +58,19 @@ class _BucketListState extends State<BucketList> {
                   height: ResConfig.screenHeight / 50,
                 ),
                 Text(
-                  "A safe place for all your dreams and\n aspirations.",
-                  style: GoogleFonts.poppins(height: 2),
+                  "Succeed together by organizing with family, friends, and colleagues.",
+                  style: GoogleFonts.poppins(),
                 ),
                 SizedBox(
                   height: ResConfig.screenHeight / 50,
                 ),
-                Image.asset(
-                  "assets/images/bucket_welcome.png",
+                Center(
+                  child: Container(
+                    height: ResConfig.screenHeight / 3,
+                    child: Image.asset(
+                      "assets/images/shared_welcome.png",
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -69,28 +78,29 @@ class _BucketListState extends State<BucketList> {
           SizedBox(
             height: ResConfig.screenHeight / 35,
           ),
-          const Divider(
-            color: lightGreyText,
-            height: 2,
-          ),
-          const BucketContent(
-              title: "Customize your layouts",
+          const Divider(),
+          const SharedContent(
+              title: "Invite team members", image: "assets/images/checked.png"),
+          const SharedContent(
+              title: "Assign tasks and schedule events",
               image: "assets/images/checked.png"),
-          const BucketContent(
-              title: "Section and write down your goals",
-              image: "assets/images/checked.png"),
-          const BucketContent(
-              title: "Update your progress",
+          const SharedContent(
+              title: "Monitor collective progress",
               image: "assets/images/checked.png"),
           SizedBox(
-            height: ResConfig.screenHeight / 25,
+            height: ResConfig.screenHeight / 50,
           ),
           GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LabelSpace()),
+                );
+              },
               child: const Center(
                   child: GetStartedButton(
                       color: Color(0xFF393c7A),
-                      text: 'Create a list',
+                      text: 'Create a task',
                       textColor: Color(0xFFFFFFFF))))
         ],
       ),

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mind_pal/screens/home/bucket_list/bucket_congrats.dart';
+import 'package:mind_pal/screens/home/bucket_list/bucket_digital.dart';
+import 'package:mind_pal/screens/home/bucket_list/bucket_welcome.dart';
+import 'package:mind_pal/screens/home/home.dart';
+import 'package:mind_pal/screens/home/shared_tasks/shared_welcome.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -38,7 +43,7 @@ class _MenuState extends State<Menu> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               'How are you planning today?',
@@ -61,17 +66,30 @@ class _MenuState extends State<Menu> {
                 crossAxisSpacing: 20,
                 children: [
                   InkWell(
-                    onTap: (){
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AllTasksScreen()));
-                    },
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AllTasksScreen()));
+                      },
                       child: MenuBox(color: redMenuBox, text: 'All Tasks')),
-
                   MenuBox(color: lilacMenuBox, text: 'Today\'s Tasks'),
-                  MenuBox(color: purpleMenuBox, text: 'Shared Tasks'),
-                  MenuBox(color: creamMenuBox, text: 'My Lists'),
+                  InkWell(
+                    onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SharedTask()));
+                      },
+                      child: MenuBox(color: purpleMenuBox, text: 'Shared Tasks')),
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BucketList()));
+                      },
+                      child: MenuBox(color: creamMenuBox, text: 'My Lists')),
                 ],
               ),
             ),
