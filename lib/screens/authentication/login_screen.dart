@@ -104,7 +104,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: ResConfig.screenHeight / 30,
               ),
               isLoading && _passwordController.text.isNotEmpty
-                  ? const CircularProgressIndicator()
+                  ? const Center(
+                      child: CircularProgressIndicator(
+                        color: purpleText,
+                      ),
+                    )
                   : Center(
                       child: AuthButton(
                       onTapped: () async {
@@ -129,8 +133,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('Wrong Details: '
-                                    '${body['message']}'),
+                                duration: const Duration(seconds: 2),
+                                content: Text(
+                                  'Wrong Details: '
+                                  '${body['message']}',
+                                  textAlign: TextAlign.center,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -142,8 +150,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
+                              duration: const Duration(seconds: 2),
                               content: const Text(
-                                  'email or password cannot be empty'),
+                                'email or password cannot be empty',
+                                textAlign: TextAlign.center,
+                              ),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
