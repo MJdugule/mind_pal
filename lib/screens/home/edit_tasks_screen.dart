@@ -47,12 +47,16 @@ class _EditTasksScreenState extends State<EditTasksScreen> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(widget.taskTitle,
-                      style: GoogleFonts.poppins(
-                          color: menuText,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600)),
+                  SizedBox(
+                    width: ResConfig.screenWidth / 1.3,
+                    child: Text(widget.taskTitle,
+                        style: GoogleFonts.poppins(
+                            color: menuText,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600)),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Image.asset(
