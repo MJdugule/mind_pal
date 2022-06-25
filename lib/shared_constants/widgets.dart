@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
+import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class ContentTile extends StatelessWidget {
@@ -64,7 +65,9 @@ class GetStartedButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.6,
       height: MediaQuery.of(context).size.height / 15,
       decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(10)),
+          BoxDecoration(color: color, borderRadius: BorderRadius.circular(10),
+              border:   Border.all(width: 0.8,color: Color(0xFF393c7A),)),
+
       child: Center(
         child: Text(text,
             style: GoogleFonts.poppins(
@@ -319,6 +322,36 @@ class TextFieldWidget extends StatelessWidget {
         hintText: 'Give a name to your task',
         border: InputBorder.none,
       ),
+    );
+  }
+}
+class BucketContent extends StatelessWidget {
+  final String title;
+  final String image;
+  const BucketContent({Key? key, required this.title, required this.image}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    ResConfig().init(context);
+    return Column(
+      children: [
+        Padding(
+          padding:  EdgeInsets.symmetric(  horizontal: ResConfig.screenWidth / 25,),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(title,style: GoogleFonts.poppins(fontWeight: FontWeight.w500),),
+              Image.asset(image)
+            ],
+          ),
+        ),
+        const Divider(
+          color: lightGreyText,
+          height: 2,
+        ),
+
+
+      ],
     );
   }
 }
