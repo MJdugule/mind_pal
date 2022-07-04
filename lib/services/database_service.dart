@@ -14,8 +14,8 @@ class TaskApi {
         });
   }
 
-  getTask() async {
-    var fullUrl = _url;
+  getTask(getLink) async {
+    var fullUrl = _url + getLink;
     return await http.get(Uri.parse(fullUrl));
   }
 }
