@@ -23,13 +23,11 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       title: 'Mind Pal',
-
       home: const Splashscreen(),
       routes: {
         'homeScreen': (_) => const HomeScreen(),
         'splashScreen': (_) => const Splashscreen(),
       },
-
     );
   }
 }

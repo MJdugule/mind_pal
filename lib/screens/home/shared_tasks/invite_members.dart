@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/bucket_list/layout.dart';
 import 'package:mind_pal/screens/home/home.dart';
+import 'package:mind_pal/screens/home/shared_tasks/create_first_task.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -109,7 +110,7 @@ class _InviteMembersState extends State<InviteMembers> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                      MaterialPageRoute(builder: (context) => CreateFirstTask()),
                     );
                   },
                   child: const Center(
