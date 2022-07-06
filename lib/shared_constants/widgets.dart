@@ -65,6 +65,7 @@ class GetStartedButton extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       height: MediaQuery.of(context).size.height / 15,
+
       decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(10),
@@ -72,6 +73,7 @@ class GetStartedButton extends StatelessWidget {
             width: 0.8,
             color: Color(0xFF393c7A),
           )),
+
       child: Center(
         child: Text(text,
             style: GoogleFonts.poppins(
@@ -348,6 +350,7 @@ class TextFieldWidget extends StatelessWidget {
   }
 }
 
+
 class AuthTextField extends StatelessWidget {
   final bool isHidden;
   final TextInputType keyboardType;
@@ -567,11 +570,13 @@ class BucketContent extends StatelessWidget {
   const BucketContent({Key? key, required this.title, required this.image})
       : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     ResConfig().init(context);
     return Column(
       children: [
+
         Container(
           height: ResConfig.screenHeight / 20,
           padding: EdgeInsets.symmetric(
@@ -593,6 +598,7 @@ class BucketContent extends StatelessWidget {
     );
   }
 }
+
 
 class SharedContent extends StatelessWidget {
   final String title;
@@ -635,3 +641,4 @@ Widget buildMembersContainer(String image) => Container(
         backgroundImage: AssetImage(image),
       ),
     );
+

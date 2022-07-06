@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:mind_pal/screens/home/home.dart';
+
 import 'package:mind_pal/screens/splashscreen.dart';
 
 Future<void> main() async {
