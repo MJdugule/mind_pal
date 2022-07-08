@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/bucket_list/bucket_digital.dart';
+import 'package:mind_pal/screens/home/bucket_list/bucket_welcome.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -74,7 +75,7 @@ class _LayoutState extends State<Layout> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => BucketDigital()),
+                MaterialPageRoute(builder: (context) => BucketList()),
               );
             },
             child: const Center(
