@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mind_pal/screens/home/bucket_list/bucket_digital.dart';
 import 'package:mind_pal/screens/home/bucket_list/name_list.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
@@ -95,7 +94,7 @@ class _BucketListState extends State<BucketList> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => BucketDigital()),
+                  MaterialPageRoute(builder: (context) => NameList()),
                 );
               },
               child: const Center(
