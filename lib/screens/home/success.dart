@@ -4,9 +4,22 @@ import 'package:mind_pal/screens/home/home.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 
-class SuccessScreen extends StatelessWidget {
+class SuccessScreen extends StatefulWidget {
   const SuccessScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SuccessScreen> createState() => _SuccessScreenState();
+}
+
+class _SuccessScreenState extends State<SuccessScreen> {
+
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 4), (){
+      Navigator.pop(context);
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     ResConfig().init(context);
@@ -19,7 +32,7 @@ class SuccessScreen extends StatelessWidget {
             child: InkWell(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => const HomeScreen()));
                 },
                 child: const Icon(Icons.arrow_back)),
           ),

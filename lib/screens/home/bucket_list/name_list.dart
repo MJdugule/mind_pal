@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/bucket_list/section.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
@@ -75,7 +73,7 @@ class _NameListState extends State<NameList> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Section()),
+                      MaterialPageRoute(builder: (context) => const Section()),
                     );
                   },
                   child: const Center(

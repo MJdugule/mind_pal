@@ -14,7 +14,6 @@ class EmailVerificationScreen extends StatefulWidget {
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _navigateToNextScreen();
   }
@@ -25,6 +24,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
         MaterialPageRoute(builder: (context) => const GetStartedScreen()));
   }
 
+  @override
   Widget build(BuildContext context) {
     ResConfig().init(context);
     return Scaffold(

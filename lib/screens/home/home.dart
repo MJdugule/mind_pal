@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mind_pal/screens/authentication/login_screen.dart';
 import 'package:mind_pal/screens/home/menu.dart';
@@ -6,7 +5,6 @@ import 'package:mind_pal/screens/home/what_would_you_like_to_do.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
-import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -139,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontSize: 20,
                 ),
               ),
-              Container(
+              SizedBox(
                 height: ResConfig.screenHeight / 2,
                 child: ListView.builder(
                   shrinkWrap: true,

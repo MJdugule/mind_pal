@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/home.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
-import 'package:mind_pal/screens/createTask/createScreen.dart';
+import 'package:mind_pal/screens/createTask/create_screen.dart';
 
 class WhatWouldYouLikeToDo extends StatelessWidget {
   const WhatWouldYouLikeToDo({Key? key}) : super(key: key);
@@ -42,13 +41,13 @@ class WhatWouldYouLikeToDo extends StatelessWidget {
           SizedBox(
             height: ResConfig.screenHeight / 15,
           ),
-          Divider(),
-          WWYLTDBox(text: 'Create New Task', ontap: CreateTaskScreen()),
-          Divider(),
-          WWYLTDBox(text: 'Create New To-Do List', ontap: HomeScreen()),
-          Divider(),
-          WWYLTDBox(text: 'Set Reminder', ontap: HomeScreen()),
-          Divider(),
+          const Divider(),
+          const WWYLTDBox(text: 'Create New Task', ontap: CreateTaskScreen()),
+          const Divider(),
+          const WWYLTDBox(text: 'Create New To-Do List', ontap: HomeScreen()),
+          const Divider(),
+          const WWYLTDBox(text: 'Set Reminder', ontap: HomeScreen()),
+          const Divider(),
         ],
       ),
     );

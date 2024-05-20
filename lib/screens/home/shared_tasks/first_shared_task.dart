@@ -22,7 +22,7 @@ class FirstSharedTask extends StatelessWidget {
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           InkWell(
-              onTap: () {}, child: Icon(Icons.arrow_back, color: purpleText)),
+              onTap: () {}, child: const Icon(Icons.arrow_back, color: purpleText)),
           SizedBox(height: ResConfig.screenHeight / 30),
           Text(
             'Take a look at your first\nshared task',
@@ -61,7 +61,7 @@ class FirstSharedTask extends StatelessWidget {
             ],
           ),
           SizedBox(height: ResConfig.screenHeight / 60),
-          FirstSharedTaskComponent(),
+          const FirstSharedTaskComponent(),
           Align(
               alignment: Alignment.bottomRight,
               child: InkWell(
@@ -71,7 +71,7 @@ class FirstSharedTask extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SharedCongrats()));
+                            builder: (context) => const SharedCongrats()));
                   },
                   child: Text(
                     'Edit',
@@ -81,9 +81,9 @@ class FirstSharedTask extends StatelessWidget {
                         fontWeight: FontWeight.w700),
                   ))),
           SizedBox(height: ResConfig.screenHeight / 5),
-          Align(
+          const Align(
               alignment: Alignment.bottomCenter,
-              child: const FeatureButtonBlue(
+              child: FeatureButtonBlue(
                   route: SharedCongrats(), text: 'Next')),
         ]),
       ),

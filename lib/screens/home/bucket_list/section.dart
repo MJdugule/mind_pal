@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/bucket_list/layout.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
@@ -86,7 +84,7 @@ class _SectionState extends State<Section> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Layout()),
+                      MaterialPageRoute(builder: (context) => const Layout()),
                     );
                   },
                   child: const Center(
@@ -101,7 +99,7 @@ class _SectionState extends State<Section> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Layout()),
+                      MaterialPageRoute(builder: (context) => const Layout()),
                     );
                   },
                   child: const Center(

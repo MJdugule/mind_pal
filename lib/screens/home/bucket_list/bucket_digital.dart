@@ -1,21 +1,10 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mind_pal/models/task_model.dart';
-import 'package:mind_pal/screens/authentication/login_screen.dart';
-import 'package:mind_pal/screens/createTask/createScreen.dart';
 import 'package:mind_pal/screens/home/bucket_list/bucket_congrats.dart';
-import 'package:mind_pal/screens/home/success.dart';
-import 'package:mind_pal/screens/home/saved.dart';
-import 'package:mind_pal/screens/home/menu.dart';
-import 'package:mind_pal/screens/home/what_would_you_like_to_do.dart';
-import 'package:mind_pal/services/database_service.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
-import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class BucketDigital extends StatefulWidget {
   const BucketDigital({Key? key}) : super(key: key);
@@ -86,7 +75,7 @@ class _BucketDigitalState extends State<BucketDigital> {
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       height: ResConfig.screenHeight / 2,
                       child: ListView.builder(
                         shrinkWrap: true,

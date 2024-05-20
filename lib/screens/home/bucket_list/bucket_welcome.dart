@@ -64,7 +64,7 @@ class _BucketListState extends State<BucketList> {
                   height: ResConfig.screenHeight / 50,
                 ),
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     height: ResConfig.screenHeight / 3,
                     child: Image.asset(
                       "assets/images/bucket_welcome.png",
@@ -94,7 +94,7 @@ class _BucketListState extends State<BucketList> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => NameList()),
+                  MaterialPageRoute(builder: (context) => const NameList()),
                 );
               },
               child: const Center(

@@ -71,7 +71,7 @@ class GetStartedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             width: 0.8,
-            color: Color(0xFF393c7A),
+            color: const Color(0xFF393c7A),
           )),
 
       child: Center(
@@ -132,16 +132,15 @@ class HomeBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print('perform some api magic here');
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         decoration: BoxDecoration(
             color: color, borderRadius: BorderRadius.circular(20)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Today\'s Progress',
               style: TextStyle(color: Colors.white),
             ),
@@ -149,7 +148,7 @@ class HomeBox extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text('${percent * 10}' '%',
-                    style: TextStyle(color: Colors.white)),
+                    style: const TextStyle(color: Colors.white)),
               ],
             ),
             LinearPercentIndicator(
@@ -160,7 +159,7 @@ class HomeBox extends StatelessWidget {
             Center(
               child: Text(
                 text,
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: const TextStyle(color: Colors.white, fontSize: 12),
               ),
             ),
           ],
@@ -195,7 +194,6 @@ class WWYLTDBox extends StatelessWidget {
             onTap: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => ontap));
-              print('Navigate to create new task page');
             },
             child: Image.asset('assets/icons/add_icon.png'),
           ),
@@ -222,7 +220,7 @@ class HomeTaskBox extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 8.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             taskCategory,
             style: const TextStyle(
@@ -232,7 +230,7 @@ class HomeTaskBox extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.fromLTRB(20, 12, 30, 12),
+          padding: const EdgeInsets.fromLTRB(20, 12, 30, 12),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: redMenuBox,
@@ -270,7 +268,7 @@ class HomeTaskBox extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: Padding(
-            padding: EdgeInsets.only(top: 8.0),
+            padding: const EdgeInsets.only(top: 8.0),
             child: GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -411,7 +409,7 @@ class AuthTextField extends StatelessWidget {
 class AuthButton extends StatelessWidget {
   const AuthButton({Key? key, required this.text, required this.onTapped})
       : super(key: key);
-  final onTapped;
+  final dynamic onTapped;
 
   final String text;
   @override
@@ -523,7 +521,7 @@ class _DigitalTaskBoxState extends State<DigitalTaskBox> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Divider(),
+        const Divider(),
         Container(
           margin: const EdgeInsets.symmetric(
             vertical: 16,
@@ -539,7 +537,7 @@ class _DigitalTaskBoxState extends State<DigitalTaskBox> {
                     color: blackText,
                     fontSize: 16),
               ),
-              Expanded(child: SizedBox()),
+              const Expanded(child: SizedBox()),
               InkWell(
                   onTap: () {},
                   child: Image.asset('assets/icons/icon_pencil.png')),
@@ -593,7 +591,7 @@ class BucketContent extends StatelessWidget {
             ],
           ),
         ),
-        Divider(),
+        const Divider(),
       ],
     );
   }
@@ -627,13 +625,13 @@ class SharedContent extends StatelessWidget {
             ],
           ),
         ),
-        Divider(),
+        const Divider(),
       ],
     );
   }
 }
 
-Widget buildMembersContainer(String image) => Container(
+Widget buildMembersContainer(String image) => SizedBox(
       width: 30,
       height: 70,
       child: CircleAvatar(

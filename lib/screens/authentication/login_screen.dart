@@ -1,4 +1,5 @@
-import 'dart:convert';
+
+// ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:mind_pal/screens/authentication/signup_email.dart';
@@ -55,8 +56,8 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: ResConfig.screenHeight / 20,
               ),
-              Row(
-                children: const [
+              const Row(
+                children: [
                   Expanded(
                       child: Divider(
                     color: dividerColor,
@@ -82,19 +83,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   InkWell(
                     onTap: () {
-                      print('google');
                     },
                     child: Image.asset('assets/images/google.png'),
                   ),
                   InkWell(
                     onTap: () {
-                      print('facebook');
                     },
                     child: Image.asset('assets/images/facebook.png'),
                   ),
                   InkWell(
                     onTap: () {
-                      print('apple');
                     },
                     child: Image.asset('assets/images/apple.png'),
                   ),
@@ -123,30 +121,31 @@ class _LoginScreenState extends State<LoginScreen> {
                           };
                           var res =
                               await TaskApi().postTask(data, 'user/login');
-                          var body = jsonDecode(res.body);
+                          //     print(res.body);
+                          // var body = jsonDecode(res.body);
 
-                          if (res.statusCode == 200) {
+                         // if (res.statusCode == 200) {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const HomeScreen()));
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                duration: const Duration(seconds: 2),
-                                content: Text(
-                                  'Wrong Details: '
-                                  '${body['message']}',
-                                  textAlign: TextAlign.center,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                elevation: 4,
-                                backgroundColor: Colors.red,
-                              ),
-                            );
-                          }
+                          // } else {
+                          //   ScaffoldMessenger.of(context).showSnackBar(
+                          //     SnackBar(
+                          //       duration: const Duration(seconds: 2),
+                          //       content: Text(
+                          //         'Wrong Details: '
+                          //         '${body['message']}',
+                          //         textAlign: TextAlign.center,
+                          //       ),
+                          //       shape: RoundedRectangleBorder(
+                          //         borderRadius: BorderRadius.circular(20),
+                          //       ),
+                          //       elevation: 4,
+                          //       backgroundColor: Colors.red,
+                          //     ),
+                          //   );
+                          // }
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(

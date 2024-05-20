@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mind_pal/screens/home/bucket_list/layout.dart';
 import 'package:mind_pal/screens/home/shared_tasks/invite_members.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
@@ -87,7 +84,7 @@ class _CategoryState extends State<Category> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => InviteMembers()),
+                      MaterialPageRoute(builder: (context) => const InviteMembers()),
                     );
                   },
                   child: const Center(
@@ -102,7 +99,7 @@ class _CategoryState extends State<Category> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => InviteMembers()),
+                      MaterialPageRoute(builder: (context) => const InviteMembers()),
                     );
                   },
                   child: const Center(

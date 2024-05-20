@@ -1,9 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mind_pal/screens/home/menu.dart';
 import 'package:mind_pal/shared_constants/components.dart';
 
 import '../../services/database_service.dart';
@@ -33,11 +31,6 @@ class _AllTasksScreenState extends State<AllTasksScreen> {
         taskTime: '14:00 - 15:00'),
   ];
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   Future getAllTask() async {
     var res = await TaskApi().getTask('task/');
@@ -214,7 +207,7 @@ class _AllTasksScreenState extends State<AllTasksScreen> {
                         child: RichText(
                           text: TextSpan(
                             text: '${snapshot.error}',
-                            style: TextStyle(color: Colors.red),
+                            style: const TextStyle(color: Colors.red),
                             children: <TextSpan>[
                               TextSpan(
                                 text: '\n\nPls Check Your Network Connection',

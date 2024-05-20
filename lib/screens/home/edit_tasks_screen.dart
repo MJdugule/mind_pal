@@ -90,7 +90,7 @@ class _EditTasksScreenState extends State<EditTasksScreen> {
               Row(
                 children: [
                   Image.asset('assets/icons/Group 2.png'),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Text(
@@ -142,8 +142,8 @@ class _EditTasksScreenState extends State<EditTasksScreen> {
                         fontSize: 13,
                         fontWeight: FontWeight.w500),
                   ),
-                  Spacer(),
-                  SwitchWidget(),
+                  const Spacer(),
+                  const SwitchWidget(),
                 ],
               ),
               SizedBox(
@@ -165,15 +165,15 @@ class _EditTasksScreenState extends State<EditTasksScreen> {
                         fontSize: 13,
                         fontWeight: FontWeight.w500),
                   ),
-                  Spacer(),
-                  SwitchWidget(),
+                  const Spacer(),
+                  const SwitchWidget(),
                 ],
               ),
               SizedBox(height: ResConfig.screenHeight / 10),
               GestureDetector(
                   onTap: () {
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => SavedScreen()));
+                        MaterialPageRoute(builder: (context) => const SavedScreen()));
                   },
                   child: const Center(
                       child: GetStartedButton(

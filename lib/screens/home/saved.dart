@@ -21,7 +21,7 @@ class SavedScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => AllTasksScreen()));
+                          builder: (context) => const AllTasksScreen()));
                 },
                 child: const Icon(Icons.arrow_back)),
           ),

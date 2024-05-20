@@ -27,7 +27,7 @@ class TaskComponent extends StatelessWidget {
                 color: lightPurpleText,
                 fontSize: 16,
                 fontWeight: FontWeight.w600)),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Padding(
@@ -49,7 +49,7 @@ class TaskComponent extends StatelessWidget {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Image.asset('assets/icons/bell-ring-outline.png'),
                   Image.asset('assets/icons/checked.png'),
                 ],
@@ -99,13 +99,13 @@ class FirstSharedTaskComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, top: 10, right: 5),
+      padding: const EdgeInsets.only(left: 20, top: 10, right: 5),
       width: 361,
       height: 130,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Color(0xFFF6F5F5),
+          color: const Color(0xFFF6F5F5),
           width: 3,
         )
       ),
@@ -123,7 +123,7 @@ class FirstSharedTaskComponent extends StatelessWidget {
                   lineWidth: 2,
                   animation: false,
                   percent: 0.0,
-                  center: Text('0%', style: GoogleFonts.poppins(color: Color(0xFF525252),fontSize: 14, fontWeight: FontWeight.w500),),
+                  center: Text('0%', style: GoogleFonts.poppins(color: const Color(0xFF525252),fontSize: 14, fontWeight: FontWeight.w500),),
                   progressColor: lightPurpleText,
                   backgroundColor: Colors.grey.shade300,
                   circularStrokeCap: CircularStrokeCap.round,
@@ -140,7 +140,7 @@ class FirstSharedTaskComponent extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text('Discussing details of the Bar\nproject', style: GoogleFonts.poppins(fontSize: 12, color: lightGreyText),),
-                  SizedBox(width: 15,),
+                  const SizedBox(width: 15,),
                   buildMembersContainer('assets/images/barth.jpg'),
                   const SizedBox(width: 1,),
                   buildMembersContainer('assets/images/matt.jpg'),

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:convert';
 
 import '../shared_constants/components.dart';
@@ -14,9 +16,7 @@ Future<void> getAllTask() async {
   //         "created_on": "2022-06-23T20:24:25.000Z"
   var res = await TaskApi().getTask('task/');
   var body = jsonDecode(res.body);
-  print('THis is the body: ${body[0]}');
   if (res.statusCode == 200) {
-    print('Response was successful');
   }
   final List data = [
     TaskComponent(

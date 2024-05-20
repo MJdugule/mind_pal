@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mind_pal/screens/home/bucket_list/bucket_congrats.dart';
-import 'package:mind_pal/screens/home/bucket_list/bucket_digital.dart';
 import 'package:mind_pal/screens/home/bucket_list/bucket_welcome.dart';
-import 'package:mind_pal/screens/home/home.dart';
 import 'package:mind_pal/screens/home/shared_tasks/shared_welcome.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
@@ -70,26 +67,26 @@ class _MenuState extends State<Menu> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AllTasksScreen()));
+                                builder: (context) => const AllTasksScreen()));
                       },
-                      child: MenuBox(color: redMenuBox, text: 'All Tasks')),
-                  MenuBox(color: lilacMenuBox, text: 'Today\'s Tasks'),
+                      child: const MenuBox(color: redMenuBox, text: 'All Tasks')),
+                  const MenuBox(color: lilacMenuBox, text: 'Today\'s Tasks'),
                   InkWell(
                     onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SharedTask()));
+                                builder: (context) => const SharedTask()));
                       },
-                      child: MenuBox(color: purpleMenuBox, text: 'Shared Tasks')),
+                      child: const MenuBox(color: purpleMenuBox, text: 'Shared Tasks')),
                   InkWell(
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => BucketList()));
+                                builder: (context) => const BucketList()));
                       },
-                      child: MenuBox(color: creamMenuBox, text: 'My Lists')),
+                      child: const MenuBox(color: creamMenuBox, text: 'My Lists')),
                 ],
               ),
             ),
@@ -101,7 +98,6 @@ class _MenuState extends State<Menu> {
               children: [
                 InkWell(
                   onTap: () {
-                    print('more api magic here');
                   },
                   child: Image.asset('assets/icons/add_icon.png'),
                 ),

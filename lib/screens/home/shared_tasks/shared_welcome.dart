@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mind_pal/screens/home/bucket_list/name_list.dart';
 import 'package:mind_pal/screens/home/shared_tasks/label_space.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
@@ -65,7 +64,7 @@ class _SharedTaskState extends State<SharedTask> {
                   height: ResConfig.screenHeight / 50,
                 ),
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     height: ResConfig.screenHeight / 3,
                     child: Image.asset(
                       "assets/images/shared_welcome.png",
@@ -94,7 +93,7 @@ class _SharedTaskState extends State<SharedTask> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LabelSpace()),
+                  MaterialPageRoute(builder: (context) => const LabelSpace()),
                 );
               },
               child: const Center(

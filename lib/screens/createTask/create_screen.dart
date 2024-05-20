@@ -1,4 +1,5 @@
-import 'dart:convert';
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/success.dart';
@@ -32,16 +33,17 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
     ResConfig().init(context);
     DateTime selectedDate = DateTime.now();
 
-    Future<Null> _selectDate(BuildContext context) async {
+    Future<void> _selectDate(BuildContext context) async {
       final DateTime? picked = await showDatePicker(
           context: context,
           initialDate: selectedDate,
           firstDate: DateTime(2015, 8),
           lastDate: DateTime(2101));
-      if (picked != null && picked != selectedDate)
+      if (picked != null && picked != selectedDate) {
         setState(() {
           selectedDate = picked;
         });
+      }
     }
 
     return Scaffold(
@@ -164,7 +166,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                         GestureDetector(
                             onTap: () => _selectDate(context),
                             child: Text(
-                              "${selectedDate}".split(' ')[0],
+                              "$selectedDate".split(' ')[0],
                               style: GoogleFonts.poppins(
                                   color: blackText,
                                   fontSize: 15,
@@ -188,8 +190,8 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                               fontSize: 15,
                               fontWeight: FontWeight.w500),
                         ),
-                        Spacer(),
-                        SwitchWidget(),
+                        const Spacer(),
+                        const SwitchWidget(),
                       ],
                     ),
                     Row(
@@ -208,8 +210,8 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                               fontSize: 15,
                               fontWeight: FontWeight.w500),
                         ),
-                        Spacer(),
-                        SwitchWidget(),
+                        const Spacer(),
+                        const SwitchWidget(),
                       ],
                     ),
                     SizedBox(height: ResConfig.screenHeight / 30),
@@ -253,12 +255,12 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
     };
 
     var res = await TaskApi().postTask(data, 'task');
-    var body = jsonDecode(res.body);
-    if (res.statusCode == 200) {
+    //var body = jsonDecode(res.body);
+   // if (res.statusCode == 200) {
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const SuccessScreen()));
-    } else {
-      const SnackBar(content: Text('Uh oh... Something went wrong.'));
-    }
+          MaterialPageRoute(builder: (context) => const SuccessScreen())).then((value) => Navigator.pop(context));
+    // } else {
+    //   const SnackBar(content: Text('Uh oh... Something went wrong.'));
+    // }
   }
 }

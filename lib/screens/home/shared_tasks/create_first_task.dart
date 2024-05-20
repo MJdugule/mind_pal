@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/screens/home/shared_tasks/first_shared_task.dart';
-import 'package:mind_pal/screens/home/shared_tasks/shared_congrats.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
 import 'package:mind_pal/shared_constants/widgets.dart';
@@ -25,7 +23,7 @@ class CreateFirstTask extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InkWell(
-                onTap: () {}, child: Icon(Icons.arrow_back, color: purpleText)),
+                onTap: () {}, child: const Icon(Icons.arrow_back, color: purpleText)),
             SizedBox(height: ResConfig.screenHeight / 40),
             Text(
               'Create First Task',
@@ -39,7 +37,7 @@ class CreateFirstTask extends StatelessWidget {
                     fontSize: 15,
                     fontWeight: FontWeight.w600)),
             SizedBox(height: ResConfig.screenHeight / 30),
-            TextFieldWidget(
+            const TextFieldWidget(
               hintText: 'Give a title to your first task...',
             ),
             SizedBox(height: ResConfig.screenHeight / 20),
@@ -48,7 +46,7 @@ class CreateFirstTask extends StatelessWidget {
                     color: menuText,
                     fontSize: 15,
                     fontWeight: FontWeight.w600)),
-            TextFieldWidget(hintText: 'Provide some additional information...'),
+            const TextFieldWidget(hintText: 'Provide some additional information...'),
             SizedBox(height: ResConfig.screenHeight / 30),
             Text('Members',
                 style: GoogleFonts.poppins(
@@ -75,25 +73,25 @@ class CreateFirstTask extends StatelessWidget {
                   width: 10,
                 ),
                 buildMembersContainer('assets/images/olivia.jpg'),
-                Spacer(),
+                const Spacer(),
                 InkWell(
                     splashColor: Colors.purple.shade100,
                     onTap: () {},
-                    child: Icon(
+                    child: const Icon(
                       Icons.add_circle_outline,
                       color: lightPurpleText,
                     )),
               ],
             ),
             SizedBox(height: ResConfig.screenHeight / 60),
-            Divider(),
+            const Divider(),
             Row(
               children: [
                 Image.asset(
                   'assets/icons/Icon Artwork.png',
                   height: 20,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
@@ -106,14 +104,14 @@ class CreateFirstTask extends StatelessWidget {
               ],
             ),
             SizedBox(height: ResConfig.screenWidth / 10),
-            Divider(),
+            const Divider(),
             Row(
               children: [
                 Image.asset(
                   'assets/icons/clock.png',
                   height: 40,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Text(
@@ -123,11 +121,11 @@ class CreateFirstTask extends StatelessWidget {
                       fontSize: 13,
                       fontWeight: FontWeight.w500),
                 ),
-                Spacer(),
-                SwitchWidget(),
+                const Spacer(),
+                const SwitchWidget(),
               ],
             ),
-            Divider(),
+            const Divider(),
             SizedBox(height: ResConfig.screenWidth / 10),
             Row(
               children: [
@@ -135,7 +133,7 @@ class CreateFirstTask extends StatelessWidget {
                   'assets/icons/bell-outline.png',
                   height: 40,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Text(
@@ -145,32 +143,32 @@ class CreateFirstTask extends StatelessWidget {
                       fontSize: 13,
                       fontWeight: FontWeight.w500),
                 ),
-                Spacer(),
-                SwitchWidget(),
+                const Spacer(),
+                const SwitchWidget(),
               ],
             ),
-            Divider(),
+            const Divider(),
             SizedBox(height: ResConfig.screenHeight / 40),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: 268,
                 height: 57,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: purpleText,
+                      backgroundColor: purpleText,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      padding: EdgeInsets.all(4)),
+                      padding: const EdgeInsets.all(4)),
                   onPressed: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => FirstSharedTask()));
+                            builder: (context) => const FirstSharedTask()));
                   },
                   child: Text('Create Task',
                       style: GoogleFonts.poppins(
-                          color: Color(0xFFFFFFFF),
+                          color: const Color(0xFFFFFFFF),
                           fontSize: 16,
                           fontWeight: FontWeight.w500)),
                 ),

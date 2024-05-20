@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
 import 'package:mind_pal/shared_constants/res_config.dart';
@@ -64,7 +62,7 @@ class _LayoutState extends State<Layout> {
           ),
           const BucketContent(
               title: "  Pen and paper", image: "assets/images/checked.png"),
-          BucketContent(title: "Digital",image: "assets/images/checked.png"),
+          const BucketContent(title: "Digital",image: "assets/images/checked.png"),
           SizedBox(
             height: ResConfig.screenHeight / 2.5,
           ),

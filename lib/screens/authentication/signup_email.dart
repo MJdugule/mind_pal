@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mind_pal/screens/authentication/login_screen.dart';
 import 'package:mind_pal/screens/authentication/signup_password.dart';
 import 'package:mind_pal/shared_constants/colours.dart';

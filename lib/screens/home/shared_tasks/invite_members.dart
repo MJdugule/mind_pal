@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mind_pal/screens/home/bucket_list/layout.dart';
 import 'package:mind_pal/screens/home/home.dart';
 import 'package:mind_pal/screens/home/shared_tasks/create_first_task.dart';
 import 'package:mind_pal/shared_constants/colours.dart';
@@ -95,7 +92,7 @@ class _InviteMembersState extends State<InviteMembers> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                      MaterialPageRoute(builder: (context) => const HomeScreen()),
                     );
                   },
                   child: const Center(
@@ -110,7 +107,7 @@ class _InviteMembersState extends State<InviteMembers> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => CreateFirstTask()),
+                      MaterialPageRoute(builder: (context) => const CreateFirstTask()),
                     );
                   },
                   child: const Center(
